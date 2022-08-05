@@ -81,15 +81,24 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Gab Engine Team'],
+			['GabDoesStuff',           		'gab',			'Creator of Gab Engine and secondary coder',  				'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
+			['Ghost Expunged Cycba',					'icon',			'Main coder for Gab Engine',									'',																'AA0000'],
+			['Aadiyan1',           		'aad',			'Third coder and Shaders code',  				'https://www.youtube.com/user/Aadiyan1',     '03C200'],
+			[''],
+			['Special Credits'],
+			['Theoyeah',					'Theoyeah',			'Creator of Theoyeah Engine - Icon permission',									'',																'009BF4'], // Fuck you, im a minor, so i can't have a freaking youtube channel
+			['Wither362',           		'wither',			'Creator of Theoyeah Engine's Icons',  				'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',     '242124'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
 			['shubs',				'shubs',			'Additional Programmer of Psych Engine',					'https://twitter.com/yoshubs',			'279ADC'],
 			[''],
-			['Former Engine Members'],
+			['Former Psych Engine Members'],
 			['bb-panzu',			'bb-panzu',			'Ex-Programmer of Psych Engine',							'https://twitter.com/bbsub3',			'389A58'],
 			[''],
-			['Engine Contributors'],
+			['Psych Engine Contributors'],
 			['iFlicky',				'iflicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',	'https://twitter.com/flicky_i',			'AA32FE'],
 			['SqirraRNG',			'gedehari',			'Chart Editor\'s Sound Waveform base',						'https://twitter.com/gedehari',			'FF9300'],
 			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',								'https://twitter.com/polybiusproxy',	'FFEAA6'],
