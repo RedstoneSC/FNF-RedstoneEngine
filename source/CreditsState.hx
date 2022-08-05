@@ -88,7 +88,7 @@ class CreditsState extends MusicBeatState
 			[''],
 			['Special Credits'],
 			['Theoyeah',					'Theoyeah',			'Creator of Theoyeah Engine - Icon permission',									'',																'009BF4'], // Fuck you, im a minor, so i can't have a freaking youtube channel
-			['Wither362',           		'wither',			'Creator of Theoyeah Engine's Icons',  				'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',     '242124'],
+			['Wither362',           		'wither',			'Creator of Theoyeah Engines Icons',  				'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',     '242124'],
 			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],

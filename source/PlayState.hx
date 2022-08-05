@@ -122,6 +122,7 @@ class PlayState extends MusicBeatState
 	public static var storyDifficulty:Int = 1;
 
 	public static var screenshader:Shaders.PulseEffect = new PulseEffect();
+	public var curbg:FlxSprite;
 
 	public var vocals:FlxSound;
 
