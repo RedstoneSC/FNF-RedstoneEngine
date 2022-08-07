@@ -144,8 +144,6 @@ class PlayState extends MusicBeatState
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 
-	public static var eyesoreson = true;
-
 	public var strumLineNotes:FlxTypedGroup<StrumNote>;
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
@@ -317,7 +315,6 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
-		eyesoreson = ClientPrefs.flashing;
 
 		// Gameplay settings
 		healthGain = ClientPrefs.getGameplaySetting('healthgain', 1);
@@ -2341,35 +2338,6 @@ class PlayState extends MusicBeatState
 					shad.uTime.value[0] += elapsed;
 				}
 		}
-		if (shakeCam && eyesoreson)
-		{
-			if (SONG.song.toLowerCase() != 'lacuna') {
-		    	FlxG.camera.shake(0.015, 0.015);
-		    	if(gf.animOffsets.exists('scared')) {
-	     			gf.playAnim('scared', true);
-		    	}
-		    }
-			if (SONG.song.toLowerCase() == 'lacuna') {
-				camHUD.shake(0.010, 0.010);
-			}
-		}
-		if (shakeCamALT && eyesoreson)
-		{
-			FlxG.camera.shake(0.015, 0.015);
-			if(gf.animOffsets.exists('scared')) {
-				gf.playAnim('scared', true);
-			}
-			/*if(boyfriend.animOffsets.exists('scared')) {
-				boyfriend.playAnim('scared', true);
-			}*/
-		}
-		screenshader.shader.uTime.value[0] += elapsed;
-		if (shakeCam && eyesoreson) {
-			screenshader.shader.uampmul.value[0] = 1;
-		} else {
-			screenshader.shader.uampmul.value[0] -= (elapsed / 2);
-		}
-		screenshader.Enabled = shakeCam && eyesoreson;
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -2935,6 +2903,19 @@ class PlayState extends MusicBeatState
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
+case 'Rainbow Eyesore':
+		var timeRainbow:Int = Std.parseInt(value1);
+		var speedRainbow:Float = Std.parseFloat(value2);
+		disableTheTripper = false;
+		disableTheTripperAt = timeRainbow;
+		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]);
+		screenshader.waveAmplitude = 1;
+		screenshader.waveFrequency = 2;
+		screenshader.waveSpeed = speedRainbow;
+		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+		screenshader.shader.uampmul.value[0] = 1;
+		screenshader.Enabled = true;
+
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
@@ -2974,15 +2955,6 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(value) || value < 1) value = 1;
 				gfSpeed = value;
 
-			case 'Toggle Eyesores':
-				var a1000YOMAMAjokesCanYouWatchThemAllquestionmarkId:Int = Std.parseInt(value1);
-				switch (a1000YOMAMAjokesCanYouWatchThemAllquestionmarkId)
-				{
-                    case 0:
-						shakeCam = false;
-					case 1: 
-						shakeCam = true;
-				}
 			case 'Blammed Lights':
 				var lightId:Int = Std.parseInt(value1);
 				if(Math.isNaN(lightId)) lightId = 0;
