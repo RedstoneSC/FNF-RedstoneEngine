@@ -2423,6 +2423,7 @@ class PlayState extends MusicBeatState
 						}
 					});
 
+
 					switch(limoKillingState) {
 						case 1:
 							limoMetalPole.x += 5000 * elapsed;
