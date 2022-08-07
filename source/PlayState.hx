@@ -144,6 +144,8 @@ class PlayState extends MusicBeatState
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 
+	public static var eyesoreson = true;
+
 	public var strumLineNotes:FlxTypedGroup<StrumNote>;
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
@@ -167,6 +169,9 @@ class PlayState extends MusicBeatState
 	public var goods:Int = 0;
 	public var bads:Int = 0;
 	public var shits:Int = 0;
+
+	private var shakeCam:Bool = false;
+	private var shakeCamALT:Bool = false;
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -312,6 +317,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
+		eyesoreson = ClientPrefs.flashing;
 
 		// Gameplay settings
 		healthGain = ClientPrefs.getGameplaySetting('healthgain', 1);
@@ -2303,6 +2309,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+
 		elapsedtime += elapsed;
 		/*if (FlxG.keys.justPressed.NINE)
 		{
@@ -2334,6 +2341,35 @@ class PlayState extends MusicBeatState
 					shad.uTime.value[0] += elapsed;
 				}
 		}
+		if (shakeCam && eyesoreson)
+		{
+			if (SONG.song.toLowerCase() != 'lacuna') {
+		    	FlxG.camera.shake(0.015, 0.015);
+		    	if(gf.animOffsets.exists('scared')) {
+	     			gf.playAnim('scared', true);
+		    	}
+		    }
+			if (SONG.song.toLowerCase() == 'lacuna') {
+				camHUD.shake(0.010, 0.010);
+			}
+		}
+		if (shakeCamALT && eyesoreson)
+		{
+			FlxG.camera.shake(0.015, 0.015);
+			if(gf.animOffsets.exists('scared')) {
+				gf.playAnim('scared', true);
+			}
+			/*if(boyfriend.animOffsets.exists('scared')) {
+				boyfriend.playAnim('scared', true);
+			}*/
+		}
+		screenshader.shader.uTime.value[0] += elapsed;
+		if (shakeCam && eyesoreson) {
+			screenshader.shader.uampmul.value[0] = 1;
+		} else {
+			screenshader.shader.uampmul.value[0] -= (elapsed / 2);
+		}
+		screenshader.Enabled = shakeCam && eyesoreson;
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -2937,6 +2973,15 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(value) || value < 1) value = 1;
 				gfSpeed = value;
 
+			case 'Toggle Eyesores':
+				var a1000YOMAMAjokesCanYouWatchThemAllquestionmarkId:Int = Std.parseInt(value1);
+				switch (a1000YOMAMAjokesCanYouWatchThemAllquestionmarkId)
+				{
+                    case 0:
+						shakeCam = false;
+					case 1: 
+						shakeCam = true;
+				}
 			case 'Blammed Lights':
 				var lightId:Int = Std.parseInt(value1);
 				if(Math.isNaN(lightId)) lightId = 0;
