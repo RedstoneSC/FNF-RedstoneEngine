@@ -45,6 +45,7 @@ import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
 import openfl.utils.Assets as OpenFlAssets;
+import openfl.filters.ShaderFilter;
 import editors.ChartingState;
 import editors.CharacterEditorState;
 import flixel.group.FlxSpriteGroup;
@@ -234,6 +235,9 @@ class PlayState extends MusicBeatState
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 	var bgGhouls:BGSprite;
+
+	var disableTheTripper:Bool = false;
+	var disableTheTripperAt:Int;
 
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
@@ -2306,7 +2310,6 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-
 		elapsedtime += elapsed;
 		/*if (FlxG.keys.justPressed.NINE)
 		{
@@ -2329,6 +2332,21 @@ class PlayState extends MusicBeatState
 		{
 			dad.x += (Math.cos(elapsedtime) * 0.6);
 		}
+		if(disableTheTripperAt == curStep)
+                                   {
+	                 disableTheTripper = true;
+                                   }
+                                  if(isDead)
+                                  {
+	               disableTheTripper = true;
+                                 }
+
+                                FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]);
+                                screenshader.update(elapsed);
+                                if(disableTheTripper)
+                               {
+	             screenshader.shader.uampmul.value[0] -= (elapsed / 2);
+                               }
 
 		if (curbg != null)
 		{
