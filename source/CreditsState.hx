@@ -82,8 +82,8 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Gab Engine Team'],
-			['GabDoesStuff',           		'gab',			'Creator of Gab Engine and secondary coder',  				'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
-			['Ghost Expunged Cycba',					'icon',			'Main coder for Gab Engine',									'',																'AA0000'],
+			['GabDoesStuff',           		'gab',			'Creator of Gab Engine, main coder, artist',  				'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
+			['Ghost Expunged Cycba',					'icon',			'Secondary coder for Gab Engine',									'',																'AA0000'],
 			['Aadiyan1',           		'aad',			'Third coder and Shaders code',  				'https://www.youtube.com/user/Aadiyan1',     '03C200'],
 			[''],
 			['Special Credits'],

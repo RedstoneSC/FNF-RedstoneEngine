@@ -223,6 +223,12 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
+			FlxG.camera.zoom = 1.5;
+			FlxG.camera.angle =30;
+			
+			FlxTween.tween(FlxG.camera, {zoom:1}, 0.95, {ease: FlxEase,quadOut});
+			FlxTween.tween(FlxG.camera, {angle:0}, 0.95, {ease: FlxEase,quadOut});
+
 			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;

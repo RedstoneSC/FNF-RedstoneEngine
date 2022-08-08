@@ -893,7 +893,7 @@ class PlayState extends MusicBeatState
 				insert(members.indexOf(dadGroup) - 1, evilTrail);
 		}
 
-		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
+		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Gab Engine dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
@@ -1152,7 +1152,7 @@ class PlayState extends MusicBeatState
 			case 0:
 				engineRandomizer = 'Gab ';
 			case 1:
-				engineRandomizer = 'Ghost Expunged Cycba ';
+				engineRandomizer = 'Ghost Cycba ';
 			case 2:
 				engineRandomizer = 'Aadiyan1 ';
 			case 3:
@@ -1162,7 +1162,7 @@ class PlayState extends MusicBeatState
         var swagWatermark = new FlxText(4, scoreTxt.y + 15, 0,
 		SONG.song
 		+ " "
-		+ "|  " + engineRandomizer + " Engine 0.1.2 (PE 0.5.2h)", 16);
+		+ "|  " + engineRandomizer + "Engine 0.1.3 (PE 0.5.2h)", 16);
 		//+ " ", 16);
 		swagWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		swagWatermark.scrollFactor.set();
@@ -1190,8 +1190,8 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-                swagWatermark.cameras = [camHUD];
-                judgementCounter.cameras = [camHUD];
+                                    swagWatermark.cameras = [camHUD];
+                                    judgementCounter.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
