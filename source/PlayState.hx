@@ -2356,6 +2356,19 @@ class PlayState extends MusicBeatState
 					shad.uTime.value[0] += elapsed;
 				}
 		}
+	                  if (SONG.song.toLowerCase() == 'tutorial') // cool modchart idk
+			{
+				playerStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.y += Math.sin(elapsedtime) * Math.random();
+					spr.y -= Math.sin(elapsedtime) * 0.1;
+				});
+				opponentStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.y -= Math.sin(elapsedtime) * Math.random();
+					spr.y += Math.sin(elapsedtime) * 0.1;
+				});
+			}
 
 		callOnLuas('onUpdate', [elapsed]);
 
