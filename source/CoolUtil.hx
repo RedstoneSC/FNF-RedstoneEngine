@@ -25,6 +25,8 @@ class CoolUtil
 
 	public static var difficulties:Array<String> = [];
 
+	public static var curFreeplayGP:Int = 0;
+
 	public static function getDifficultyFilePath(num:Null<Int> = null)
 	{
 		if(num == null) num = PlayState.storyDifficulty;

@@ -24,30 +24,27 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
-class MainMenuState extends MusicBeatState
+class FreeplaySelectState extends MusicBeatState
 {
 	public static var GabEngineVersion:String = '0.1.3'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
+    var sectionImage:FlxSprite;
+    var sectionSelected:Int = 0;
+    var sections:Array<String> = ['main'/*, 'mods'*/];
+
+    var AREYOUINTHEFUCKINGSELECTION:Bool = false;
+
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
-
-	var logo:FlxSprite;
 	
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
-		#if !switch 'donate', #end
-		'options'
+		'main'//,
+		//#if MODS_ALLOWED 'mods' #end
 	];
 
 	var magenta:FlxSprite;
-	var camFollow:FlxObject;
-	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
 
 	override function create()
@@ -82,11 +79,6 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-		add(camFollowPos);
-
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
@@ -96,28 +88,6 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-
-		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), 5, 5, true, true, -33, -32);
-		bgScroll.scrollFactor.set();
-		bgScroll.screenCenter();
-		bgScroll.velocity.set(50, 50);
-		bgScroll.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bgScroll);
-
-		var bgs:FlxSprite = new FlxSprite(500, -150).loadGraphic(Paths.image('bar'));
-		bgs.scrollFactor.set(0, 0);
-		bgs.setGraphicSize(Std.int(bgs.width * 1.3), Std.int(bgs.height * 1.3));
-		bgs.updateHitbox();
-		add(bgs);
-
-		logo = new FlxSprite(0, 90).loadGraphic(Paths.image('logoBumpinALT'));//Thats the logo that appears in the menu
-		logo.frames = Paths.getSparrowAtlas('logoBumpinALT');//here put the name of the xml
-		logo.animation.addByPrefix('bump', 'bumper', 24, true);//on 'idle normal' change it to your xml one
-		logo.animation.play('bump');//you can rename the anim however you want to
-		logo.scrollFactor.set();
-		logo.scale.set(1.2, 1.2);
-		FlxTween.tween(logo, {y: logo.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-		add(logo);
 		
 		// magenta.scrollFactor.set();
 
@@ -133,16 +103,15 @@ class MainMenuState extends MusicBeatState
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.scale.x = scale;
+			menuItem.scale.y = scale;
+			menuItem.frames = Paths.getSparrowAtlas('fpmenu/fpmenu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			//menuItem.screenCenter(X);
-			menuItem.scale.x = 0.8;
-			menuItem.scale.y = 0.8;
-			menuItem.x += 800;
-			menuItem.angle += 9;
+            menuItem.x += 40;
+            menuItem.angle -= 9;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -152,7 +121,12 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 		}
 
-		FlxG.camera.follow(camFollowPos, null, 1);
+        //vewy sawwey striwent criwis 3333333:
+        sectionImage = new FlxSprite(0, 150).loadGraphic(Paths.image('fpicon_' + sections[sectionSelected]));
+		sectionImage.screenCenter(X);
+		sectionImage.screenCenter(Y);
+		sectionImage.x = sectionImage.x + 200;
+		add(sectionImage);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Gab Engine v" + GabEngineVersion, 12);
 		versionShit.scrollFactor.set();
@@ -202,7 +176,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
-		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
 		if (!selectedSomethin)
 		{
@@ -210,73 +183,59 @@ class MainMenuState extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
+                changeSectionFunction(-1);
 			}
 
 			if (controls.UI_DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
+                changeSectionFunction(1);
 			}
 
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				MusicBeatState.switchState(new MainMenuState());
 			}
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
-				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-				}
-				else
-				{
-					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
 
-					if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+				if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-					menuItems.forEach(function(spr:FlxSprite)
+				menuItems.forEach(function(spr:FlxSprite)
+				{
+					if (curSelected != spr.ID)
 					{
-						if (curSelected != spr.ID)
-						{
-							FlxTween.tween(spr, {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									spr.kill();
-								}
-							});
-						}
-						else
-						{
-							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						FlxTween.tween(spr, {alpha: 0}, 0.4, {
+							ease: FlxEase.quadOut,
+							onComplete: function(twn:FlxTween)
 							{
-								var daChoice:String = optionShit[curSelected];
-
-								switch (daChoice)
-								{
-									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplaySelectState());
-									#if MODS_ALLOWED
-									case 'mods':
-										MusicBeatState.switchState(new ModsMenuState());
-									#end
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
-								}
-							});
-						}
-					});
-				}
+								spr.kill();
+							}
+						});
+					}
+					else
+					{
+						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						{
+							var daChoice:String = optionShit[curSelected];
+							switch (daChoice)
+							{
+								case 'main':
+									MusicBeatState.switchState(new freeplays./*MainFreeplay*//*in the future, soon*/ModsFreeplayState());
+								/*#if MODS_ALLOWED
+								case 'mods':
+									MusicBeatState.switchState(new freeplays.ModsFreeplayState());
+								#end*/
+							}
+						});
+					}
+				});
 			}
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
@@ -286,6 +245,8 @@ class MainMenuState extends MusicBeatState
 			}
 			#end
 		}
+
+        sectionImage.loadGraphic(Paths.image('fpicon_' + sections[sectionSelected]));
 
 		super.update(elapsed);
 
@@ -316,9 +277,18 @@ class MainMenuState extends MusicBeatState
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
 				spr.centerOffsets();
 			}
 		});
+	}
+    //SOWWY SWIDEN CRIWIS@!#!@#!@#!@#
+    public function changeSectionFunction(changeSection:Int = 0)
+	{
+		sectionSelected += changeSection;
+	
+		if (sectionSelected < 0)
+			sectionSelected = sections.length-1;
+		if (sectionSelected >= sections.length)
+			sectionSelected = 0;
 	}
 }

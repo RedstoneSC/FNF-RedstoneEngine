@@ -1,3 +1,13 @@
+hi hihihihihiih!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+uhmmmmmmm, me, average
+im writting this to say, thanks for the support by downloading :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+we are working hard on this engine, and let me say, thanks for playing.
+ik, this is psych, but im trying to implement MANY features that psych doesn't have, and we WONT be using any code from any other engine.
+
+cheers, averagedavelover.
+
+anyways have fnf readme
+
  __                 /                                  
 / _   _ |_ |_ .  _                                     
 \__) (- |_ |_ | | )                                    

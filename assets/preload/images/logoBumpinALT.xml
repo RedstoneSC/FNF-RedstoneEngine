@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logoBumpinALT.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bumper0000" x="0" y="0" width="430" height="234" frameX="-81" frameY="-44" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0001" x="430" y="0" width="592" height="322"/>
+	<SubTexture name="bumper0002" x="430" y="0" width="592" height="322"/>
+	<SubTexture name="bumper0003" x="0" y="322" width="498" height="271" frameX="-47" frameY="-26" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0004" x="0" y="322" width="498" height="271" frameX="-47" frameY="-26" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0005" x="0" y="322" width="498" height="271" frameX="-47" frameY="-26" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0006" x="0" y="322" width="498" height="271" frameX="-47" frameY="-26" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0007" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0008" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0009" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0010" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0011" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0012" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+	<SubTexture name="bumper0013" x="498" y="322" width="464" height="252" frameX="-64" frameY="-35" frameWidth="592" frameHeight="322"/>
+</TextureAtlas>

@@ -1,5 +1,10 @@
 # Friday Night Funkin' - Gab Engine
 A modification of Psych Engine which adds shaders and more!
+_____________________________________
+## BIG NOTICE:
+please do not reuse the fps.hx code in your engine, if you do, please remove it now. thanks!
+- average
+_____________________________________
 
 ## Installation:
 You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
@@ -11,9 +16,13 @@ To install LuaJIT do this: `haxelib git linc_luajit https://github.com/AndreiRud
 Otherwise, if you don't want your mod to be able to run .lua scripts, delete the "LUA_ALLOWED" line on Project.xml
 
 ## Credits:
+# developers
 * Gab - Coding and Arts
-* GhostExpungedCycba - Coding
+* AverageDaveLover65 - Extra coding and Animator/Artist, made the 3D notes (go ahead use them in your mod, please credit me!!!!!!!!!!!!!!!!!!!)
 * Aadiyan1 - Coding (Shaders)
+# contributors
+* Theoyeah - Creator of Theoyeah Engine/Icon permission
+* Wither362 - Creator of Theoyeah Engines Icons
 
 ## Special:
 * Shadow Mario - Coding

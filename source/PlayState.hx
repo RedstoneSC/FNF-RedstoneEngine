@@ -68,6 +68,20 @@ class PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
+	
+	private var highestCombo:Int = 0;
+
+	//var infoThingy:FlxText;
+	var moarAdvancedUIIII:FlxText;
+
+	var songInfoBG:FlxSprite;
+	var songInfoText:FlxText;
+
+	public var funny3DWorlEffeccWavy:WiggleEffect;
+	public var wavyShades:Shaders.PulseEffect = new PulseEffect();
+	public var daWavyIzActiv:Bool = false;
+
+	
 
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
@@ -331,6 +345,12 @@ class PlayState extends MusicBeatState
 		screenshader.waveFrequency = 2;
 		screenshader.waveSpeed = 1;
 		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+
+		funny3DWorlEffeccWavy = new WiggleEffect();
+		funny3DWorlEffeccWavy.effectType = WiggleEffectType.WAVY;
+		funny3DWorlEffeccWavy.waveAmplitude = 0.2;
+		funny3DWorlEffeccWavy.waveFrequency = 3;
+		funny3DWorlEffeccWavy.waveSpeed = 1.25;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1133,16 +1153,44 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt); //this code gets everything above applied
 
+		songInfoBG = new FlxSprite().makeGraphic(150 * 3, 50 * 2, FlxColor.GRAY);
+		songInfoBG.setGraphicSize(Std.int(songInfoBG.width * 1.05));
+		songInfoBG.alpha = 0.45;
+		songInfoBG.x = 50 * 30;
+		songInfoBG.y = 50 * 5;
+	
+		songInfoText = new FlxText(songInfoBG.x + 15, songInfoBG.y + (15 * 2), FlxG.width, "", 14);
+		songInfoText.setFormat(Paths.font('vcr.ttf'), 18, FlxColor.WHITE, LEFT);
+
+		add(songInfoBG);
+		add(songInfoText);
+
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 2;
-		judgementCounter.borderQuality = 2;
+		judgementCounter.borderSize = 1.25;
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		if (ClientPrefs.judgementCounter) {
+		judgementCounter.text = 'Highest Combo: ${highestCombo}\nCombo: ${combo}\n\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+
+		
+		/*infoThingy = new FlxText(1000, 20, 0, "INFO: \n" + PlayState.SONG.infothingg, 20);
+		infoThingy.setFormat(Paths.font("vcr.ttf"), 22, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		infoThingy.borderSize = 1.25;
+		infoThingy.scrollFactor.set();
+		infoThingy.cameras = [camHUD];
+		infoThingy.screenCenter(Y);
+		infoThingy.y += 100;*/
+
+		moarAdvancedUIIII = new FlxText(-10 * 2, healthBarBG.y - (20 * 4), FlxG.width, "", 20);
+		moarAdvancedUIIII.setFormat(Paths.font("vcr.ttf"), 26, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		moarAdvancedUIIII.scrollFactor.set();
+		moarAdvancedUIIII.borderSize = 1.25;
+		moarAdvancedUIIII.cameras = [camHUD];
+
+		if(ClientPrefs.advancedUI) {
 			add(judgementCounter);
+			add(moarAdvancedUIIII);
 		}
 
 		var randomThingy:Int = FlxG.random.int(0, 2);
@@ -1152,7 +1200,7 @@ class PlayState extends MusicBeatState
 			case 0:
 				engineRandomizer = 'Gab ';
 			case 1:
-				engineRandomizer = 'Ghost Cycba ';
+				engineRandomizer = 'Ghost Expunged Cycba ';
 			case 2:
 				engineRandomizer = 'Aadiyan1 ';
 			case 3:
@@ -1162,7 +1210,7 @@ class PlayState extends MusicBeatState
         var swagWatermark = new FlxText(4, scoreTxt.y + 15, 0,
 		SONG.song
 		+ " "
-		+ "|  " + engineRandomizer + "Engine 0.1.3 (PE 0.5.2h)", 16);
+		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine 0.1.2 (PE 0.5.2h)", 16);
 		//+ " ", 16);
 		swagWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		swagWatermark.scrollFactor.set();
@@ -1190,8 +1238,8 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-                                    swagWatermark.cameras = [camHUD];
-                                    judgementCounter.cameras = [camHUD];
+                                    			swagWatermark.cameras = [camHUD];
+                                				judgementCounter.cameras = [camHUD]; //tradition to do 		to it
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
@@ -1880,6 +1928,17 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
+		FlxTween.tween(songInfoBG, {x: 30}, 1.25, {ease: FlxEase.quartInOut});
+		FlxTween.tween(songInfoText, {x: 30 + 15}, 1.25, {ease: FlxEase.quartInOut, startDelay: 0.15, onComplete: function(twn:FlxTween) {
+			new FlxTimer().start(2.5, function(tmr:FlxTimer) {
+				FlxTween.tween(songInfoBG, {x: 50 * 30}, 1.25, {ease: FlxEase.quartInOut});
+				FlxTween.tween(songInfoText, {x: 50 * 30}, 1.25, {ease: FlxEase.quartInOut, startDelay: 0.15, onComplete: function(twn:FlxTween) {
+					songInfoBG.kill();
+					songInfoText.kill();
+				}});
+			});
+		}});
+
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
@@ -2316,6 +2375,11 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 
+		if(daWavyIzActiv)
+		{
+			wavyShades.update(elapsed);
+		}
+
 		if(funnyFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canFloat)
 		{
 			dad.y += (Math.sin(elapsedtime) * 0.6);
@@ -2546,6 +2610,14 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+		}
+		if(ClientPrefs.advancedUI) {
+			scoreTxt.text = ' ';
+		}
+
+		if (ClientPrefs.advancedUI) {
+			moarAdvancedUIIII.text = "Rating: " + ratingName + "\nGained Score: " + songScore + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' ' + ratingFC + "\nMisses: " + songMisses + "\nTotal Notes Hit: " + totalNotesHit;
+			songInfoText.text = "Info: " + PlayState.SONG.infothingg;
 		}
 
 		if(botplayTxt.visible) {
@@ -2934,18 +3006,22 @@ class PlayState extends MusicBeatState
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
-case 'Rainbow Eyesore':
-		var timeRainbow:Int = Std.parseInt(value1);
-		var speedRainbow:Float = Std.parseFloat(value2);
-		disableTheTripper = false;
-		disableTheTripperAt = timeRainbow;
-		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]);
-		screenshader.waveAmplitude = 1;
-		screenshader.waveFrequency = 2;
-		screenshader.waveSpeed = speedRainbow;
-		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
-		screenshader.shader.uampmul.value[0] = 1;
-		screenshader.Enabled = true;
+			case 'Rainbow Eyesore':
+				var timeRainbow:Int = Std.parseInt(value1);
+				var speedRainbow:Float = Std.parseFloat(value2);
+				disableTheTripper = false;
+				disableTheTripperAt = timeRainbow;
+				FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]);
+				screenshader.waveAmplitude = 1;
+				screenshader.waveFrequency = 2;
+				screenshader.waveSpeed = speedRainbow;
+				screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+				screenshader.shader.uampmul.value[0] = 1;
+				if(!ClientPrefs.flashing) {
+					screenshader.Enabled = false; //to make it so people dont die
+				} else {
+					screenshader.Enabled = true;
+				}
 
 			case 'Hey!':
 				var value:Int = 2;
@@ -4202,6 +4278,9 @@ case 'Rainbow Eyesore':
 				}
 			}
 
+			if(highestCombo < combo)
+				highestCombo = combo;
+
 			if(cpuControlled) {
 				var time:Float = 0.15;
 				if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
@@ -4692,7 +4771,7 @@ case 'Rainbow Eyesore':
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
 		setOnLuas('ratingFC', ratingFC);
-                judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+		judgementCounter.text = 'Highest Combo: ${highestCombo}\nCombo: ${combo}\n\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
 	}
 
 	#if ACHIEVEMENTS_ALLOWED

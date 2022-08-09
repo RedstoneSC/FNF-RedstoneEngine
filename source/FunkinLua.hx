@@ -596,6 +596,13 @@ class FunkinLua {
 			}
 			return boobs;
 		});
+		//SHADERSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+		/*Lua_helper.add_callback(lua, "addWavyEffect", function(tag:String) { //ill add this later when i get the chance to implement it
+			if(PlayState.modchartSprites.exists(tag)) {
+				var dicksinmyass:ModchartSprite = PlayState.modchartSprites.get(tag);
+				dicksinmyass.shader = PlayState.funny3DWorlEffeccWavy.shader;
+			}
+		});*/
 		Lua_helper.add_callback(lua, "noteTweenAngle", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String) {
 			cancelTween(tag);
 			if(note < 0) note = 0;
