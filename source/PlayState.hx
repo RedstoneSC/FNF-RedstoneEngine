@@ -1200,7 +1200,7 @@ class PlayState extends MusicBeatState
 			case 0:
 				engineRandomizer = 'Gab ';
 			case 1:
-				engineRandomizer = 'Ghost Expunged Cycba ';
+				engineRandomizer = 'AverageDaveLover65 ';
 			case 2:
 				engineRandomizer = 'Aadiyan1 ';
 			case 3:
