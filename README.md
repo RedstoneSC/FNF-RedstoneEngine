@@ -14,7 +14,7 @@ do
 ```
 haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit
 ```
-on a Command prompt/PowerShell
+on ur cmd prompt/powershel
 
 if you dont want ur mod to run lua delete the "LUA_ALLOWED" on project.xml
 
