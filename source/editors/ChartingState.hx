@@ -216,7 +216,7 @@ class ChartingState extends MusicBeatState
 				speed: 1,
 				stage: 'stage',
 				validScore: false,
-				infothingg: '',
+				//infothingg: '',
 			};
 			addSection();
 			PlayState.SONG = _song;
@@ -392,14 +392,14 @@ class ChartingState extends MusicBeatState
 	var noteSkinInputText:FlxUIInputText;
 	var noteSplashesInputText:FlxUIInputText;
 	var stageDropDown:FlxUIDropDownMenuCustom;
-	var UI_info:FlxUIInputText;
+	//var UI_info:FlxUIInputText;
 	function addSongUI():Void
 	{
 		UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
 		blockPressWhileTypingOn.push(UI_songTitle);
 
-		UI_info = new FlxUIInputText(110, 10 * 8, 70, _song.infothingg, 8);
-		blockPressWhileTypingOn.push(UI_info);
+		//UI_info = new FlxUIInputText(110, 10 * 8, 70, _song.infothingg, 8);
+		//blockPressWhileTypingOn.push(UI_info);
 		
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
 		check_voices.checked = _song.needsVoices;
@@ -599,7 +599,7 @@ class ChartingState extends MusicBeatState
 		var tab_group_song = new FlxUI(null, UI_box);
 		tab_group_song.name = "Song";
 		tab_group_song.add(UI_songTitle);
-		tab_group_song.add(UI_info);
+		//tab_group_song.add(UI_info);
 
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
@@ -1471,7 +1471,7 @@ class ChartingState extends MusicBeatState
 		}
 		Conductor.songPosition = FlxG.sound.music.time;
 		_song.song = UI_songTitle.text;
-		_song.infothingg = UI_info.text;
+		//_song.infothingg = UI_info.text;
 
 		strumLine.y = getYfromStrum((Conductor.songPosition - sectionStartTime()) / zoomList[curZoom] % (Conductor.stepCrochet * _song.notes[curSection].lengthInSteps));
 		for (i in 0...8){
@@ -2773,7 +2773,7 @@ class ChartingState extends MusicBeatState
 			gfVersion: _song.gfVersion,
 			stage: _song.stage,
 			validScore: false,
-			infothingg: '',
+			//infothingg: '',
 		};
 		var json = {
 			"song": eventsSong

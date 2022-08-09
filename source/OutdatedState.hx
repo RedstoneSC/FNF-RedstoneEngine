@@ -26,7 +26,7 @@ class OutdatedState extends MusicBeatState
 		if(!FlxG.save.data.alreadySeen) {
 			warnText = new FlxText(0, 0, FlxG.width,
 				"Heya! It seems like you're running an   \n
-				outdated version of Gab Engine (" + MainMenuState.GabEngineVersion + "),\n
+				outdated version of Gab Engine (" + MainMenuState.gabEngineVersion + "),\n
 				please update to " + TitleState.updateVersion + "!\n
 				Press ESCAPE to proceed anyway.\n
 				\n
@@ -35,7 +35,7 @@ class OutdatedState extends MusicBeatState
 		} else {
 			warnText = new FlxText(0, 0, FlxG.width,
 				"HEY HEY, YOURE A MASSIVE PUSSY COMPARED TO ME,   \n
-				BYE!!!!!!!!!!!! \nalso your gab engine version is outdated (" + MainMenuState.GabEngineVersion + "),\n
+				BYE!!!!!!!!!!!! \nalso your gab engine version is outdated (" + MainMenuState.gabEngineVersion + "),\n
 				pretty please update to " + TitleState.updateVersion + "or expect me at your front door\n
 				press escape to continue your EPIC journey\n\n- average",
 			32);

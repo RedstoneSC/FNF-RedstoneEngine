@@ -74,8 +74,8 @@ class PlayState extends MusicBeatState
 	//var infoThingy:FlxText;
 	var moarAdvancedUIIII:FlxText;
 
-	var songInfoBG:FlxSprite;
-	var songInfoText:FlxText;
+	/*var songInfoBG:FlxSprite;
+	var songInfoText:FlxText;*/ //THIS FELT VERY FUCKING USELESS
 
 	public var funny3DWorlEffeccWavy:WiggleEffect;
 	public var wavyShades:Shaders.PulseEffect = new PulseEffect();
@@ -1153,7 +1153,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt); //this code gets everything above applied
 
-		songInfoBG = new FlxSprite().makeGraphic(150 * 3, 50 * 2, FlxColor.GRAY);
+		/*songInfoBG = new FlxSprite().makeGraphic(150 * 3, 50 * 2, FlxColor.GRAY);
 		songInfoBG.setGraphicSize(Std.int(songInfoBG.width * 1.05));
 		songInfoBG.alpha = 0.45;
 		songInfoBG.x = 50 * 30;
@@ -1163,7 +1163,7 @@ class PlayState extends MusicBeatState
 		songInfoText.setFormat(Paths.font('vcr.ttf'), 18, FlxColor.WHITE, LEFT);
 
 		add(songInfoBG);
-		add(songInfoText);
+		add(songInfoText);*/
 
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1210,7 +1210,7 @@ class PlayState extends MusicBeatState
         var swagWatermark = new FlxText(4, scoreTxt.y + 15, 0,
 		SONG.song
 		+ " "
-		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine " + gabEngineVersion, 16);
+		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine " + MainMenuState.gabEngineVersion, 16);
 		//+ " ", 16);
 		swagWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		swagWatermark.scrollFactor.set();
@@ -1928,7 +1928,7 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
-		FlxTween.tween(songInfoBG, {x: 30}, 1.25, {ease: FlxEase.quartInOut});
+		/*FlxTween.tween(songInfoBG, {x: 30}, 1.25, {ease: FlxEase.quartInOut});
 		FlxTween.tween(songInfoText, {x: 30 + 15}, 1.25, {ease: FlxEase.quartInOut, startDelay: 0.15, onComplete: function(twn:FlxTween) {
 			new FlxTimer().start(2.5, function(tmr:FlxTimer) {
 				FlxTween.tween(songInfoBG, {x: 50 * 30}, 1.25, {ease: FlxEase.quartInOut});
@@ -1937,7 +1937,7 @@ class PlayState extends MusicBeatState
 					songInfoText.kill();
 				}});
 			});
-		}});
+		}});*/
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
@@ -2617,7 +2617,7 @@ class PlayState extends MusicBeatState
 
 		if (ClientPrefs.advancedUI) {
 			moarAdvancedUIIII.text = "Rating: " + ratingName + "\nGained Score: " + songScore + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' ' + ratingFC + "\nMisses: " + songMisses + "\nTotal Notes Hit: " + totalNotesHit;
-			songInfoText.text = "Info: " + PlayState.SONG.infothingg;
+			//songInfoText.text = "Info: " + PlayState.SONG.infothingg;
 		}
 
 		if(botplayTxt.visible) {
