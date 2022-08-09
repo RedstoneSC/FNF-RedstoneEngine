@@ -1210,7 +1210,7 @@ class PlayState extends MusicBeatState
         var swagWatermark = new FlxText(4, scoreTxt.y + 15, 0,
 		SONG.song
 		+ " "
-		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine 0.1.2 (PE 0.5.2h)", 16);
+		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine 0.1.3 (PE 0.5.2h)", 16);
 		//+ " ", 16);
 		swagWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		swagWatermark.scrollFactor.set();
