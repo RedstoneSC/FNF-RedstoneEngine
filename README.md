@@ -11,7 +11,7 @@ GOTTA HAVE [THE UP-TO-DATE HAXE](https://haxe.org/download/) IF YOU HAVE 4.1.5 T
 
 follow this [convenient tutorial](https://youtu.be/grCip1ATI94), also install LuaJIT.
 
-do ` ``haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit`` ` on a Command prompt/PowerShell
+do ``haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit`` on a Command prompt/PowerShell
 
 if you dont want ur mod to run lua delete the "LUA_ALLOWED" on project.xml
 
