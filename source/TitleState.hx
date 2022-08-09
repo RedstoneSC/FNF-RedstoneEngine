@@ -109,7 +109,7 @@ class TitleState extends MusicBeatState
 		#if CHECK_FOR_UPDATES
 		if(!closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/ShadowMario/FNF-PsychEngine/main/gitVersion.txt");
+			var http = new haxe.Http("https://github.com/Gabriel2019r/FNF-GabEngine/main/gitVersion.txt");
 			
 			http.onData = function (data:String)
 			{
@@ -117,7 +117,7 @@ class TitleState extends MusicBeatState
 				var curVersion:String = MainMenuState.psychEngineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
-					trace('versions arent matching!');
+					trace('bro your version isnt the same as https://github.com/Gabriel2019r/FNF-GabEngine/main/gitVersion.txt please fucking update');
 					mustUpdate = true;
 				}
 			}
