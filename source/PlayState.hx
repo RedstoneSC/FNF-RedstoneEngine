@@ -2051,12 +2051,7 @@ class PlayState extends MusicBeatState
 
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.mustPress = gottaHitNote;
-				if(((Note.charactersWith3D.contains(PlayState.SONG.player2) && !gottaHitNote) || (Note.charactersWith3D.contains(PlayState.SONG.player1) && gottaHitNote)) || ((Note.charactersWith3D.contains(PlayState.SONG.player2) || Note.charactersWith3D.contains(PlayState.SONG.player1)) && ((swagNote.strumTime / 50) % 20 > 10)))
-					{
-					   swagNote.texture = 'yourNOTEskinNAME';
-					} else {
-					   swagNote.texture = 'NOTE_assets';
-					}      //credits to ghost expunged cycba
+				//i removed this bit of code because junicko is preparing to release a big update for the engine with me so TOODLES OLD CODE - average
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
 				swagNote.noteType = songNotes[3];
@@ -2446,27 +2441,9 @@ class PlayState extends MusicBeatState
 
 		callOnLuas('onUpdate', [elapsed]);
 
-		if (((Note.charactersWith3D.contains(PlayState.SONG.player2)) ||  ((Note.charactersWith3D.contains(PlayState.SONG.player2)))))
-            {
-                for(i in 0...4) {
-                    opponentStrums.members[i].texture = 'yourNOTEskinNAME';
-                }
-                for(i in 0...unspawnNotes.length-1) {
-                    if(!unspawnNotes[i].mustPress) {
-                        unspawnNotes[i].texture = 'yourNOTEskinNAME';
-                    }
-                }
-			}
-        if (((Note.charactersWith3D.contains(PlayState.SONG.player1)) ||  ((Note.charactersWith3D.contains(PlayState.SONG.player1))))) {
-            for(i in 0...4) {
-                playerStrums.members[i].texture = 'yourNOTEskinNAME';
-            }
-            for(i in 0...unspawnNotes.length-1) {
-                if(unspawnNotes[i].mustPress) {
-                    unspawnNotes[i].texture = 'yourNOTEskinNAME';
-                    }
-                }                   
-            }
+		//old cringe code was here
+		//i got rid of it because it sucked
+		//and also junicko is making a new noteskin thingy
 
 		switch (curStage)
 		{
