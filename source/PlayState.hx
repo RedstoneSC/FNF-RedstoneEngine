@@ -3914,7 +3914,7 @@ class PlayState extends MusicBeatState
 							sortedNotesList.push(daNote);
 							//notesDatas.push(daNote.noteData);
 						}
-						canMiss = false;
+						canMiss = true;
 					}
 				});
 				sortedNotesList.sort((a, b) -> Std.int(a.strumTime - b.strumTime));
@@ -3939,10 +3939,8 @@ class PlayState extends MusicBeatState
 
 					}
 				}
-				else if (canMiss) {
+				else if (canMiss && !ClientPrefs.ghostTapping) 
 					noteMissPress(key);
-					callOnLuas('noteMissPress', [key]);
-				}
 
 				// I dunno what you need this for but here you go
 				//									- Shubs
