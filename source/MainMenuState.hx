@@ -42,6 +42,7 @@ class MainMenuState extends MusicBeatState
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
 		#if !switch 'donate', #end
+		'discord',
 		'options'
 	];
 
@@ -227,9 +228,15 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
+				if (optionShit[curSelected] == 'discord' || optionShit[curSelected] == 'donate')
 				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					switch(optionShit[curSelected])
+					{
+						case 'discord':
+							CoolUtil.browserLoad('https://discord.gg/YYJfvgxhan');
+						case 'donate':
+							CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					}
 				}
 				else
 				{

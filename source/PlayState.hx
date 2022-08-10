@@ -147,6 +147,16 @@ class PlayState extends MusicBeatState
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
 
+	/*var scoreTxtCPURandomizer:String = [
+		'hi you have virus on computer',
+		'Today I CODED a CHEATER in MINECARFT',
+		'coca cola espuma',
+		'what to do on this fine monday',
+		'fdgslkjfdslksdfjlsdfkjldsfkj',
+		'WHY WOULD YOU DO THIS',
+		'hi are you using' + MainMenuState.gabEngineVersion + 'by any chance?'
+	];*/ //scrapped feature i was tryin to do, i wanted to make it randomize the text n' shit but ended up with errors so fuck it im /****/'ing it
+
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<EventNote> = [];
@@ -2611,6 +2621,9 @@ class PlayState extends MusicBeatState
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
 		}
+		/*if (cpuControlled) {
+			scoreTxt.text = ' ' + scoreTxtCPURandomizer;
+		}*/ //nope nope nope nope
 		if(ClientPrefs.advancedUI) {
 			scoreTxt.text = ' ';
 		}
