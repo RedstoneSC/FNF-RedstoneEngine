@@ -994,10 +994,23 @@ class PlayState extends MusicBeatState
 		}*/ //i hate this
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 20, 400, "", 64);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		//}
 		if(ClientPrefs.timeBarType == 'Time and Song Name') 
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 20, 400, "", 64);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		timeTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		/*} else if(ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			timeTxt.borderStyle = OUTLINE;
+			timeTxt.borderSize = 2;
+			timeTxt.borderColor = FlxColor.BLACK;
+		}*/
+		if(PlayState.isPixelStage) {
+			timeTxt.setFormat(Paths.font("pixel.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		} else if(PlayState.isPixelStage && ClientPrefs.timeBarType == 'Time and Song Name') {
+			timeTxt.setFormat(Paths.font("pixel.otf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.size = 25;
@@ -1157,7 +1170,17 @@ class PlayState extends MusicBeatState
 		reloadHealthBarColors();
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if(PlayState.isPixelStage) {
+			scoreTxt.setFormat(Paths.font("pixel.otf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		/*} else if (ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			scoreTxt.borderStyle = OUTLINE;
+			scoreTxt.borderSize = 2;
+			scoreTxt.borderColor = FlxColor.BLACK;
+			scoreTxt.x -= 250;
+		}*/
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
@@ -1176,7 +1199,16 @@ class PlayState extends MusicBeatState
 		add(songInfoText);*/
 
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if(PlayState.isPixelStage) {
+			judgementCounter.setFormat(Paths.font("pixel.otf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		/*} else if(ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			judgementCounter.borderStyle = OUTLINE;
+			judgementCounter.borderSize = 2;
+			judgementCounter.borderColor = FlxColor.BLACK;
+		}*/
 		judgementCounter.borderSize = 1.25;
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
@@ -1193,7 +1225,18 @@ class PlayState extends MusicBeatState
 		infoThingy.y += 100;*/
 
 		moarAdvancedUIIII = new FlxText(-10 * 2, healthBarBG.y - (20 * 4), FlxG.width, "", 20);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		moarAdvancedUIIII.setFormat(Paths.font("vcr.ttf"), 26, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if(PlayState.isPixelStage) {
+			moarAdvancedUIIII.setFormat(Paths.font("pixel.otf"), 26, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		/*} else if(ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			moarAdvancedUIIII.borderStyle = OUTLINE;
+			moarAdvancedUIIII.borderSize = 2;
+			moarAdvancedUIIII.borderColor = FlxColor.BLACK;
+			moarAdvancedUIIII.x += 40;
+			moarAdvancedUIIII.y += 8;
+		}*/
 		moarAdvancedUIIII.scrollFactor.set();
 		moarAdvancedUIIII.borderSize = 1.25;
 		moarAdvancedUIIII.cameras = [camHUD];
@@ -1222,12 +1265,30 @@ class PlayState extends MusicBeatState
 		+ " "
 		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine " + MainMenuState.gabEngineVersion, 16);
 		//+ " ", 16);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		swagWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if(PlayState.isPixelStage) {
+			swagWatermark.setFormat(Paths.font("pixel.otf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		/*} else if(ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			swagWatermark.borderStyle = OUTLINE;
+			swagWatermark.borderSize = 2;
+			swagWatermark.borderColor = FlxColor.BLACK;
+		}*/
 		swagWatermark.scrollFactor.set();
 		add(swagWatermark);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		//if(!ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if(PlayState.isPixelStage) {
+			botplayTxt.setFormat(Paths.font("pixel.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		}
+		/*} else if(ClientPrefs.DISABLETHEFUCKINGFONTAAAAAAAAAA) {
+			botplayTxt.borderStyle = OUTLINE;
+			botplayTxt.borderSize = 2;
+			botplayTxt.borderColor = FlxColor.BLACK;
+		}*/
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
@@ -3653,6 +3714,10 @@ class PlayState extends MusicBeatState
 	public var showCombo:Bool = true;
 	public var showRating:Bool = true;
 
+	public var hits:Array<Float> = [];
+
+	public var timeShown = 0;
+	public var currentTimingShown:FlxText = null;
 	private function popUpScore(note:Note = null):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
@@ -3756,6 +3821,44 @@ class PlayState extends MusicBeatState
 		rating.x += ClientPrefs.comboOffset[0];
 		rating.y -= ClientPrefs.comboOffset[1];
 
+		var msTiming = HelperFunctions.truncateFloat(noteDiff, 3);
+		if(cpuControlled) msTiming = 0;		
+
+		if (currentTimingShown != null)
+			remove(currentTimingShown);
+
+		currentTimingShown = new FlxText(0, 0, 0, "0ms");
+		timeShown = 0;
+
+		currentTimingShown.borderStyle = OUTLINE;
+		currentTimingShown.borderSize = 2;
+		currentTimingShown.borderColor = FlxColor.BLACK;
+		currentTimingShown.text = msTiming + "ms";
+		currentTimingShown.size = 20;
+		currentTimingShown.visible = !ClientPrefs.hideHud;
+
+		if (msTiming >= 0.03)
+		{
+			//Remove Outliers
+			hits.shift();
+			hits.shift();
+			hits.shift();
+			hits.pop();
+			hits.pop();
+			hits.pop();
+			hits.push(msTiming); // kade wtf was this
+
+			var total = 0.0;
+
+			for(i in hits)
+				total += i;
+		}
+
+		if (currentTimingShown.alpha != 1)
+			currentTimingShown.alpha = 1;
+
+		insert(members.indexOf(strumLineNotes), currentTimingShown);
+
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
 		comboSpr.cameras = [camHUD];
 		comboSpr.screenCenter();
@@ -3766,6 +3869,14 @@ class PlayState extends MusicBeatState
 		comboSpr.x += ClientPrefs.comboOffset[0];
 		comboSpr.y -= ClientPrefs.comboOffset[1];
 
+		currentTimingShown.screenCenter();
+		currentTimingShown.acceleration.y = 600;
+		currentTimingShown.velocity.y -= 150;
+		currentTimingShown.cameras = [camHUD];
+		currentTimingShown.velocity.x += comboSpr.velocity.x;
+		currentTimingShown.updateHitbox();
+		currentTimingShown.x += ClientPrefs.comboOffset[0] + 560;
+		currentTimingShown.y += ClientPrefs.comboOffset[1] + 180;
 
 		comboSpr.velocity.x += FlxG.random.int(1, 10);
 		insert(members.indexOf(strumLineNotes), rating);
