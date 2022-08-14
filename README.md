@@ -18,6 +18,10 @@ on ur cmd prompt/powershel
 
 if you dont want ur mod to run lua delete the "LUA_ALLOWED" on project.xml
 
+also if we ever add something new that requires hxCodec do this on ur powershell/cmd prompt:
+```
+haxelib install hxCodec 2.5.1 
+```
 ## Credits:
 # developers
 * Gab - Coding and Arts
