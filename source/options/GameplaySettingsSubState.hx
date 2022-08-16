@@ -101,6 +101,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.maxValue = 30;
 		addOption(option);
 
+		var option:Option = new Option('Save replay',
+			'If checked, game will save a recording of your game\nfor every song you beat in story mode.
+			Note that replays are not a video so\nreplay\'s size will be pretty small.',
+			'saveReplay',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Sick! Hit Window',
 			'Changes the amount of time you have\nfor hitting a "Sick!" in milliseconds.',
 			'sickWindow',

@@ -51,6 +51,8 @@ class ModsFreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 
+	var repText:FlxText;
+
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -160,6 +162,11 @@ class ModsFreeplayState extends MusicBeatState
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
+
+		repText = new FlxText(FlxG.width * 0.7 - 270, scoreText.y + 65, 600, "", 20);
+		repText.text = 'Press ALT to show the replays of ${songs[curSelected].songName.toUpperCase()}';
+		repText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
+		add(repText);
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
@@ -284,6 +291,7 @@ class ModsFreeplayState extends MusicBeatState
 		var accepted = controls.ACCEPT;
 		var space = FlxG.keys.justPressed.SPACE;
 		var ctrl = FlxG.keys.justPressed.CONTROL;
+		var alt = FlxG.keys.justPressed.ALT;
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
@@ -320,6 +328,7 @@ class ModsFreeplayState extends MusicBeatState
 		else if (controls.UI_RIGHT_P)
 			changeDiff(1);
 		else if (upP || downP) changeDiff();
+		else if (alt && ClientPrefs.saveReplay) MusicBeatState.switchState(new ReplaySelectState(songs[curSelected].songName));
 
 		if (controls.BACK)
 		{
@@ -437,6 +446,8 @@ class ModsFreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0, playSound:Bool = true)
 	{
+		repText.text = 'Press ALT to show the replays of ${songs[curSelected].songName.toUpperCase()}';
+
 		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;

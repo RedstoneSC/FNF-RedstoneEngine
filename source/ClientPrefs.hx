@@ -34,6 +34,7 @@ class ClientPrefs {
 	public static var controllerMode:Bool = false;
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
+	public static var saveReplay:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -132,6 +133,7 @@ class ClientPrefs {
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.saveReplay = saveReplay;
 	
 		FlxG.save.flush();
 
@@ -227,7 +229,7 @@ class ClientPrefs {
 			advancedUI = FlxG.save.data.advancedUI;
 		}
 		if(FlxG.save.data.DISABLETHEFUCKINGFONTAAAAAAAAAA != null) {
-			DISABLETHEFUCKINGFONTAAAAAAAAAA = FlxG.save.data.DISABLETHEFUCKINGFONTAAAAAAAAAA;
+			DISABLETHEFUCKINGFONTAAAAAAAAAA = FlxG.save.data.DISABLETHEFUCKINGFONTAAAAAAAAAA; //damn take a chill pill - crushernotdrip
 		}
 		if(FlxG.save.data.sickWindow != null) {
 			sickWindow = FlxG.save.data.sickWindow;
@@ -249,6 +251,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.pauseMusic != null) {
 			pauseMusic = FlxG.save.data.pauseMusic;
+		}
+		if(FlxG.save.data.saveReplay != null) {
+			saveReplay = FlxG.save.data.saveReplay;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

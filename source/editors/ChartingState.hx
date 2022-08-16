@@ -93,6 +93,8 @@ class ChartingState extends MusicBeatState
 
 	var UI_box:FlxUITabMenu;
 
+	var deeznutz:Bool = false;
+
 	public static var goToPlayState:Bool = false;
 	/**
 	 * Array of notes showing when each section STARTS in STEPS
@@ -197,6 +199,7 @@ class ChartingState extends MusicBeatState
 	public static var vortex:Bool = false;
 	override function create()
 	{
+		deeznutz = true;
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
 		else

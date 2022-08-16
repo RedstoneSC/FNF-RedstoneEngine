@@ -82,13 +82,16 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Gab Engine Team'],
-			['GabDoesStuff',           		'gab',			'Creator of Gab Engine, main programmer, artist.',  				'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
-			['AverageDaveLover65',					'average',			'Programmer/Artist/Animator of the engine & Composed Title music.',									'',																'00FF00'], //fuck you cycba
-			['Aadiyan1',           		'aad',			'Programmer, and Shaders code.',  				'https://www.youtube.com/user/Aadiyan1',     '03C200'],
+			['GabDoesStuff',		'gab',				'Creator of Gab Engine, main programmer, artist.',  		'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
+			['AverageDaveLover65',	'average',			'Programmer/Artist/Animator of the engine & Composed Title music.',	'',								'00FF00'], //fuck you cycba
+			['Aadiyan1',           	'aad',				'Programmer, and Shaders code.',  							'https://www.youtube.com/user/Aadiyan1','03C200'],
 			[''],
 			['Special Credits'],
-			['Theoyeah',					'Theoyeah',			'Creator of Theoyeah Engine - Icon permission',									'',																'009BF4'], // Fuck you, im a minor, so i can't have a freaking youtube channel
-			['Wither362',           		'wither',			'Creator of Theoyeah Engines Icons',  				'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',     '242124'],
+			['Theoyeah',			'Theoyeah',			'Creator of Theoyeah Engine - Icon permission',				'',										'009BF4'], // Fuck you, im a minor, so i can't have a freaking youtube channel //theo why do you say "freaking" instead of "fucking" when you said "fuck you"?????
+			['Wither362',           'wither',			'Creator of Theoyeah Engines Icons',  						'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw', '242124'],
+			['Magnumsrt',           'mag',             'Stage Editor',                                             'https://www.youtube.com/channel/UCvLfr0qFidKD2Wul8otcJcw', '0066CC'],
+			['TahirRollingArch',    'tahir',             'Replay System',                                            'https://github.com/TahirRollingArch',  'B57D5E'],
+			['CrusherNotDrip',      'crusher',             'Ported Stage Editor and Replay System to Gab Engine.',     'https://twitter.com/CrusherNotDrip',   '00FFFF'],
 			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
