@@ -90,7 +90,7 @@ class FPS extends TextField
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
                         if (memoryMegas > memoryPeak) memoryPeak = memoryMegas;
 
-			text += "\nMEM: " + memoryMegas + " RAM" + "\nMEM PEAK: " + memoryPeak + " RAM";
+			text += "\nMEM: " + memoryMegas + " RAM" + "\nMEM PEAK: " + memoryPeak + " RAM"; //credit based engine + don't take this or I will come for your breast's
 			#end
 
 			textColor = 0xFFFFFFFF;
