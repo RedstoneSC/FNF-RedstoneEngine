@@ -28,13 +28,14 @@ haxelib install hxCodec 2.5.1
 ## Credits:
 # Developers
 * Gab - Coding and Artwork
-* AverageDaveLover65 - Extra coding and Animator/Artist/Composer, made the 3D notes (Credit them when using THERE stuff!)
+* AverageDaveLover65 - Extra coding and Animator/Artist/Composer, made the 3D notes (Credit them when using THEIR stuff!)
 * Aadiyan1 - Coding (Shaders support)
 # Contributors
 * Theoyeah - Creator of Theoyeah Engine/Icon permission
 * Wither362 - Creator of Theoyeah Engines Icons
 * HaydenGaming - Memory peak. (Credit them while takin the code!)
 
+_____________________________________
 ## PE TEAM
 * Shadow Mario - Coding
 * RiverOaken - Arts and Animations
@@ -49,7 +50,6 @@ haxelib install hxCodec 2.5.1
 * Smokey - Spritemap Texture Atlas support
 * Cary - OG Resolution code
 * Nebula_Zorua - VCR Shader code
-* BBPaznu - EX Programmar
 _____________________________________
 
 ### Features
@@ -60,10 +60,9 @@ Make's the titlestate.hx a little bit better, including tweening and that sort o
 
 ![](https://user-images.githubusercontent.com/107285739/185762607-78af4bee-57f8-472b-908c-d2d7fb4e2d12.png)
 
-## Shaders VIA LUA/SOURCE
-* You can add: ```addWavyEffect('whateverthehellyourstageis', 1.5, 3);``` to stage .lua
+## Shaders VIA SOURCE
 
-* You can also add it though source code, if you don't like sneaky code thefter's!
+* You can add it though source code, if you even decide to!
 
 **  
 ```
@@ -98,8 +97,9 @@ Adds in some cool stuff
 
 ## Freeplay sections
 
-* Make's it possible to play either mod's or the base game for FNF
-** Mods section can be enabled as soon you enable mods, in the mods menu state
+* Make's it possible to play either mod's the base game for FNF.
+
+While being a work in progress
 
 ![](https://user-images.githubusercontent.com/107285739/185763286-bc7a47a2-7f5f-4feb-97a2-64de38c80e73.png)
 
