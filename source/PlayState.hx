@@ -175,7 +175,7 @@ class PlayState extends MusicBeatState
 	public var strumLineNotes:FlxTypedGroup<StrumNote>;
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
-	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
+	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>; 
 
 	public var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -1492,6 +1492,7 @@ class PlayState extends MusicBeatState
 		super.create();
 
 		Paths.clearUnusedMemory();
+                Paths.clearStoredMemory();
 		CustomFadeTransition.nextCamera = camOther;
 	}
 
