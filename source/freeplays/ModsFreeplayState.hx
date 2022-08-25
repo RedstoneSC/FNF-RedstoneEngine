@@ -16,6 +16,7 @@ import Discord.DiscordClient;
 import editors.ChartingState;
 import flash.text.TextField;
 import flixel.FlxG;
+import flixel.FlxSubState;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionableState;
@@ -399,6 +400,7 @@ class ModsFreeplayState extends MusicBeatState
 			if (FlxG.keys.pressed.SHIFT){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
+				//openSubState(new LoadingScreenButSubstate());
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
 
@@ -552,6 +554,10 @@ class ModsFreeplayState extends MusicBeatState
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
+	}
+	override function openSubState(SubState:FlxSubState)
+	{
+		super.openSubState(SubState);
 	}
 }
 
