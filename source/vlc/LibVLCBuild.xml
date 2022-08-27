@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <xml>
 	<set name="PROJECT_DIR" value="${this_dir}" />
 	<set name="CPP_DIR" value="${PROJECT_DIR}/cpp" />
@@ -6,23 +7,19 @@
 		<compilervalue name="-I" value="${CPP_DIR}/include/" />
 		<compilervalue name="-I" value="${CPP_DIR}/src/" />
 	</files>
+
+	<target id='haxe' tool='linker'>
+		<lib name='${CPP_DIR}/lib/libvlc.so.5' if='linux'/>
+		<lib name='${CPP_DIR}/lib/libvlccore.so.9' if='linux'/>
+	</target>
+
+	<target id='haxe' tool='linker' if='mac'>
+		<lib name='${CPP_DIR}/lib/Mac/libvlc.5.dylib'/>
+		<lib name='${CPP_DIR}/lib/Mac/libvlccore.7.dylib'/>
+	</target>
 	
 	<target id='haxe' tool='linker' toolid='exe'>
 		<lib name='${CPP_DIR}/lib/libvlc.lib' if='windows'/>
 		<lib name='${CPP_DIR}/lib/libvlccore.lib' if='windows'/>
 	</target>
-
-	<target id="haxe" tool="linker" if="macos">
-            <flag value="-framework"/>
-            <flag value="OpenGL"/>
-            <flag value="-framework"/>
-            <flag value="CoreVideo"/>
-            <flag value="-framework"/>
-            <flag value="IOKit"/>
-            <flag value="-framework"/>
-            <flag value="Cocoa"/>
-            <flag value="-framework"/>      
-            <flag value="Glut"/>
-        </target>
-	
 </xml>
