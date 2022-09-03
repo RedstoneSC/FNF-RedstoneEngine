@@ -87,7 +87,7 @@ class FPS extends TextField
 			var memoryMegas:Float = 0;
 			
 			#if openfl
-			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+			memoryMegas = Math.round(System.totalMemory / (1e+6));
                         if (memoryMegas > memoryPeak) memoryPeak = memoryMegas;
 
 			text += "\nMEM: " + memoryMegas + " RAM" + "\nMEM PEAK: " + memoryPeak + " RAM";
