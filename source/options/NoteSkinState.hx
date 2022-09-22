@@ -46,7 +46,7 @@ class NoteSkinState extends MusicBeatState {
         add(grpNotes);
 
         var skinPath:String = 'images/noteSkins/';
-        var path:String = Paths.image(skinPath);
+        var path:String = Paths.modFolders(skinPath);
         trace(path);
 
         if(FileSystem.exists(path)) {

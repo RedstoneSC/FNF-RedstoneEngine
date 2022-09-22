@@ -1295,7 +1295,6 @@ class PlayState extends MusicBeatState
 		moarAdvancedUIIII.cameras = [camHUD];
 
 		if(ClientPrefs.advancedUI) {
-			add(judgementCounter);
 			add(moarAdvancedUIIII);
 		}
 
@@ -1379,8 +1378,8 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-                                    			swagWatermark.cameras = [camHUD];
-                                				judgementCounter.cameras = [camHUD]; //tradition to do 		to it
+		swagWatermark.cameras = [camHUD];
+		judgementCounter.cameras = [camHUD]; //tradition to do 		to it
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
