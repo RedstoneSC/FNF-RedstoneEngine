@@ -1313,7 +1313,7 @@ class PlayState extends MusicBeatState
 				engineRandomizer = 'Epic Gamer ';*/ //unused
 		}
 
-        var swagWatermark = new FlxText(4, scoreTxt.y + 15, 0,
+        var swagWatermark = new FlxText(4, scoreTxt.y + 25, 0,
 		SONG.song
 		+ " "
 		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine " + MainMenuState.gabEngineVersion, 16);
