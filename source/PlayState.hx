@@ -4499,6 +4499,9 @@ class PlayState extends MusicBeatState
 				if (curStep >= 0) if(SONG.notes[curSection].altAnim  && opponentChart || note.noteType == 'Alt Animation') daAlt = '-alt';
 				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];
 
+
+				var char:Character = boyfriend;
+				if(opponentChart) char = dad;
 				if(note.gfNote) 
 				{
 					if(gf != null)
