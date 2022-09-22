@@ -9,6 +9,7 @@ import Controls;
 class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
+	public static var laneunderlay:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var judgementCounter:Bool = false;
 	public static var flashing:Bool = true;
@@ -98,6 +99,8 @@ class ClientPrefs {
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
+		FlxG.save.data.laneunderlay = laneunderlay;
+		FlxG.save.data.laneTransparency = laneTransparency;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.advancedUI = advancedUI;
 		FlxG.save.data.DISABLETHEFUCKINGFONTAAAAAAAAAA = DISABLETHEFUCKINGFONTAAAAAAAAAA;
@@ -150,6 +153,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
+		}
+		if(FlxG.save.data.laneunderlay != null) {
+			laneunderlay = FlxG.save.data.laneunderlay;
+		}
+		if(FlxG.save.data.laneTransparency != null) {
+			laneTransparency = FlxG.save.data.laneTransparency;
 		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
@@ -262,6 +271,7 @@ class ClientPrefs {
 			{
 				gameplaySettings.set(name, value);
 			}
+			gameplaySettings.set('opponentplay', false);
 		}
 		
 		// flixel automatically saves your volume!

@@ -1,8 +1,10 @@
 package;
 
+import flixel.addons.ui.U;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
+import sys.FileSystem;
 
 using StringTools;
 
@@ -34,7 +36,14 @@ class StrumNote extends FlxSprite
 		this.noteData = leData;
 		super(x, y);
 
-		var skin:String = 'NOTE_assets';
+		var skin:String;
+		if(FlxG.save.data.arrowSkin != null) {	
+			skin = FlxG.save.data.arrowSkin;
+		}
+		else {
+			skin = "noteSkins/ARROW_assets";
+		}
+
 		if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		texture = skin; //Load texture and anims
 
@@ -48,10 +57,16 @@ class StrumNote extends FlxSprite
 
 		if(PlayState.isPixelStage)
 		{
-			loadGraphic(Paths.image('pixelUI/' + texture));
+			var skin:String = 'noteSkins/ARROW_assets';
+			if (FileSystem.exists(Paths.modFolders('images/pixelUI/$texture.png')) && FileSystem.exists(Paths.modFolders('images/pixelUI/' + texture + 'ENDS.png'))) {
+				skin = FlxG.save.data.arrowSkin;
+			} else {
+				skin = 'noteSkins/ARROW_assets';
+			}
+			loadGraphic(Paths.image('pixelUI/' + skin));
 			width = width / 4;
 			height = height / 5;
-			loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
+			loadGraphic(Paths.image('pixelUI/' + skin), true, Math.floor(width), Math.floor(height));
 
 			antialiasing = false;
 			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
