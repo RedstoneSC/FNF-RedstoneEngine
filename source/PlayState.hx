@@ -1267,8 +1267,10 @@ class PlayState extends MusicBeatState
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
 		judgementCounter.text = 'Highest Combo: ${highestCombo}\nCombo: ${combo}\n\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+		if (ClientPrefs.judgementCounter) {
+			add(judgementCounter);
+		}
 
-		
 		/*infoThingy = new FlxText(1000, 20, 0, "INFO: \n" + PlayState.SONG.infothingg, 20);
 		infoThingy.setFormat(Paths.font("vcr.ttf"), 22, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		infoThingy.borderSize = 1.25;
