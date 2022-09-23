@@ -22,6 +22,9 @@ import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
+// oooo gradient
+import flixel.util.FlxGradient;
+
 using StringTools;
 
 class MainMenuState extends MusicBeatState
