@@ -22,9 +22,6 @@ import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
-// oooo gradient
-import flixel.util.FlxGradient;
-
 using StringTools;
 
 class MainMenuState extends MusicBeatState
@@ -53,8 +50,6 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
-
-	var leGradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, 300, 0xFFEB2B48);
 
 	override function create()
 	{
@@ -103,12 +98,7 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-		leGradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0xFFEB2B48, 0xFFEB2B48, 0xFFEB2B48], 1, 90, true);
-		leGradientBar.y = FlxG.height - leGradientBar.height;
-		add(leGradientBar);
-		leGradientBar.scrollFactor.set(0, 0);
-
-		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), 5, 5, true, true);
+		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), 5, 5, true, true, -33, -32);
 		bgScroll.scrollFactor.set();
 		bgScroll.screenCenter();
 		bgScroll.velocity.set(50, 50);
@@ -121,9 +111,9 @@ class MainMenuState extends MusicBeatState
 		bgs.updateHitbox();
 		add(bgs);
 
-		logo = new FlxSprite(0, 90).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
-		logo.frames = Paths.getSparrowAtlas('logoBumpin');//here put the name of the xml
-		logo.animation.addByPrefix('bump', 'logo bumpin', 60, true);//on 'idle normal' change it to your xml one
+		logo = new FlxSprite(0, 90).loadGraphic(Paths.image('logoBumpinALT'));//Thats the logo that appears in the menu
+		logo.frames = Paths.getSparrowAtlas('logoBumpinALT');//here put the name of the xml
+		logo.animation.addByPrefix('bump', 'bumper', 24, true);//on 'idle normal' change it to your xml one
 		logo.animation.play('bump');//you can rename the anim however you want to
 		logo.scrollFactor.set();
 		logo.scale.set(1.2, 1.2);
