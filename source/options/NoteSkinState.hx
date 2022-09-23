@@ -46,7 +46,7 @@ class NoteSkinState extends MusicBeatState {
         add(grpNotes);
 
         var skinPath:String = 'images/noteSkins/';
-        var path:String = 'Paths.image(skinPath, "shared")';
+        var path:String = 'Paths.image("shared", skinPath)';
         trace(path);
 
         if(FileSystem.exists(path)) {
@@ -83,7 +83,7 @@ class NoteSkinState extends MusicBeatState {
         
         helpText = new FlxText((FlxG.width/2) - 600, (FlxG.height/2) + 200, FlxG.width, "Use the up and down arrow keys to select a skin. Press enter to select.");
         helpText.scrollFactor.set();
-        helpText.setFormat("Permanent Marker Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        helpText.setFormat("Permanent Marker Regular", 25, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(helpText);
     }
 
