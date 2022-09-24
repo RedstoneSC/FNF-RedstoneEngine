@@ -1266,7 +1266,10 @@ class PlayState extends MusicBeatState
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Highest Combo: ${highestCombo}\nCombo: ${combo}\n\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}'
+		judgementCounter.text = 'Highest Combo: ${highestCombo}\nCombo: ${combo}\n\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+		if (ClientPrefs.judgementCounter) {
+			add(judgementCounter);
+		}
 
 		/*infoThingy = new FlxText(1000, 20, 0, "INFO: \n" + PlayState.SONG.infothingg, 20);
 		infoThingy.setFormat(Paths.font("vcr.ttf"), 22, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1295,7 +1298,6 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.advancedUI) {
 			add(moarAdvancedUIIII);
-			add(judgementCounter); //fuck you redstone im readding this back in
 		}
 
 		var randomThingy:Int = FlxG.random.int(0, 2);
