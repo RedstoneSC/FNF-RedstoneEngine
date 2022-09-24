@@ -46,12 +46,10 @@ class NoteSkinState extends MusicBeatState {
         add(grpNotes);
 
         var skinPath:String = 'images/noteSkins/';
-        var path:String = Paths.image('shared' + skinPath);
-        trace(path);
 
-        if(FileSystem.exists(path)) {
+        if(FileSystem.exists(skinPath)) {
             trace("Note skins found");
-            for(file in FileSystem.readDirectory(path)) {
+            for(file in FileSystem.readDirectory(skinPath)) {
                 if(StringTools.contains(file, '.xml')) {
                     var skinName = StringTools.replace(file, ".xml", "");
                     trace('Found note skin ' + skinName);
