@@ -3,7 +3,9 @@
 // credits to Phoneguytech75 (we gave credits! :D)
 package options;
 
-import sys.FileSystem;
+#if MODS_ALLOWED    
+    import sys.FileSystem;
+#end    
 import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.group.FlxGroup;
@@ -16,7 +18,7 @@ import flixel.util.FlxColor;
 using StringTools;
 
 class NoteSkinState extends MusicBeatState {
-
+   
     private var grpSkins:FlxTypedGroup<Alphabet>;
     private var grpNotes:FlxTypedGroup<FlxSprite>;
     private var skinText:Alphabet;
@@ -27,7 +29,7 @@ class NoteSkinState extends MusicBeatState {
     var camFollow:FlxObject;
     var camFollowPos:FlxObject;
     var skinList:Array<Dynamic> = [];
-
+   
     override function create() {
 
         bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
@@ -75,7 +77,7 @@ class NoteSkinState extends MusicBeatState {
         //     skinText.targetY = i;
         //     grpSkins.add(skinText);
         // }
-
+        
         previewSkin();
 
 
@@ -83,19 +85,19 @@ class NoteSkinState extends MusicBeatState {
         skinText.isMenuItem = true;
         skinText.screenCenter();
         grpSkins.add(skinText);
-
+        
         helpText = new FlxText((FlxG.width/2) - 300, (FlxG.height/2) + 100, FlxG.width, "Use the up and down arrow keys to select a skin. Press enter to select.");
         helpText.scrollFactor.set();
         helpText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(helpText);
     }
 
-
+    
     override function update(elapsed:Float) {
         var downP = controls.UI_DOWN_P;
         var upP = controls.UI_UP_P;
         var accepted = controls.ACCEPT;
-
+        
         if(downP) {
             changeSkin();
         }
@@ -138,7 +140,7 @@ class NoteSkinState extends MusicBeatState {
         for (i in 0...arrows.length) {
             var arrow:FlxSprite = new FlxSprite((FlxG.width/2) - 250 + Note.swagWidth * i , (FlxG.height/2) - 200);
             arrow.scale.set(0.7, 0.7);
-
+			
 			arrow.frames = Paths.getSparrowAtlas('noteSkins/' + skinList[curSelected]);
 
             arrow.animation.addByPrefix('idle', arrows[i]);
@@ -148,8 +150,7 @@ class NoteSkinState extends MusicBeatState {
         }
     }
 }
-
-/* package options;
+/*package options;
 
 import sys.FileSystem;
 import flixel.FlxG;
