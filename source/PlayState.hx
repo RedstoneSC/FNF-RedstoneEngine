@@ -1,4 +1,5 @@
-// heya, this code has been made by gabdoesstuff and cycba lol
+// coded by Aadiyan2, Ghost Cycba (Fired) and AverageDaveLover69
+// mfs i had to change it -redstoneSC
 package;
 
 import flixel.graphics.FlxGraphic;
@@ -2584,6 +2585,16 @@ class PlayState extends MusicBeatState
 					spr.y += Math.sin(elapsedtime) * 0.1;
 				});
 			}
+
+			if (SONG.song.toLowerCase() == 'test') // Wavy Shader Modchart test
+				{
+					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.1;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					testshader.shader.uTime.value[0] += elapsed;
+					camHUD.setFilters([new ShaderFilter(testshader.shader)]);
+				}
 
 		callOnLuas('onUpdate', [elapsed]);
 
