@@ -149,12 +149,6 @@ class NoteSkinState extends MusicBeatState {
     }
 }
 
-// BROKEN CODE
-
-
-// this code below is what we cannot fix at all, so we're just gonna
-// do a small thing, by putting it down below.
-
 /* package options;
 
 import sys.FileSystem;
