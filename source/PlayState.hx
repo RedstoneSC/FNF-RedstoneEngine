@@ -1,5 +1,6 @@
 // coded by Aadiyan2, Ghost Cycba (Fired) and AverageDaveLover69
 // mfs i had to change it -redstoneSC
+// fixed wavy modchart by Aadiyan2
 package;
 
 import flixel.graphics.FlxGraphic;
@@ -1308,7 +1309,7 @@ class PlayState extends MusicBeatState
 		switch(randomThingy)
 		{
 			case 0:
-				engineRandomizer = 'Gab ';
+				engineRandomizer = 'Redstone ';
 			case 1:
 				engineRandomizer = 'AverageDaveLover65 ';
 			case 2:
@@ -2590,11 +2591,11 @@ class PlayState extends MusicBeatState
 
 			testshader.shader.uTime.value[0] += elapsed;
 
-			if (SONG.song.toLowerCase() == 'test') // Holy holy shit shit
+			if (SONG.song.toLowerCase() == 'test') // Holy holy shit shit -aadiyan2
 				{
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
-					testshader.waveSpeed = 2;
+					testshader.waveSpeed = 1;
 					camHUD.setFilters([new ShaderFilter(testshader.shader)]);
 				}
 

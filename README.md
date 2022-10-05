@@ -1,6 +1,6 @@
 ![](https://user-images.githubusercontent.com/100803757/183262381-b61dfcf2-2a78-401c-8bd0-ffbf22d0e6a0.png?width=1101&height=701)
-# Friday Night Funkin' - Gab Engine
-A modification of Psych Engine which adds shaders and lot's of feature's!
+# Friday Night Funkin' - Redstone Engine
+A modification of Psych Engine (mostly psych fork) which adds shaders and lots of features!
 _____________________________________
 ## BIG NOTICE:
 Please don't take fps.hx FONT code! Remove it if you have it!
@@ -27,7 +27,7 @@ haxelib install hxCodec 2.5.1
 ```
 ## Credits:
 # Developers
-* Gab - Coding and Artwork
+* RedstoneSC - Coding (small amount) and Artwork
 * AverageDaveLover65 - Extra coding and Animator/Artist/Composer, made the 3D notes (Credit them when using THEIR stuff!)
 * Aadiyan1 - Coding (Shaders support)
 # Contributors
@@ -56,7 +56,7 @@ _____________________________________
 
 ## New title screen
 
-Make's the titlestate.hx a little bit better, including tweening and that sort of stuff
+Makes the titlestate.hx a little bit better, including tweening and that sort of stuff
 
 ![](https://user-images.githubusercontent.com/107285739/185762607-78af4bee-57f8-472b-908c-d2d7fb4e2d12.png)
 
@@ -84,7 +84,7 @@ Adds in some cool stuff
 
 ![](https://user-images.githubusercontent.com/107285739/185762921-3fe34263-7341-4081-b39e-f005052879ee.png)
 
-## Camera follow + Gab-Engine UI
+## Camera follow + Redstone-Engine UI
 
 * Adds in a hardcoded camera movement like in bambi's purgatory, and it is disablable whenever you feel like it!
 
@@ -105,4 +105,4 @@ While being a work in progress
 
 ### Thanks for reading!
 
-Make sure to play gab engine whenever you can! Unique engine!
+Make sure to play redstone engine whenever you can! Unique engine!
