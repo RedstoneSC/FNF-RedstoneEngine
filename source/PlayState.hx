@@ -176,6 +176,8 @@ class PlayState extends MusicBeatState
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 
+	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+
 	public var strumLineNotes:FlxTypedGroup<StrumNote>;
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
@@ -2586,13 +2588,13 @@ class PlayState extends MusicBeatState
 				});
 			}
 
-			if (SONG.song.toLowerCase() == 'test') // Wavy Shader Modchart test
+			testshader.shader.uTime.value[0] += elapsed;
+
+			if (SONG.song.toLowerCase() == 'test') // Holy holy shit shit
 				{
-					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
 					testshader.waveSpeed = 2;
-					testshader.shader.uTime.value[0] += elapsed;
 					camHUD.setFilters([new ShaderFilter(testshader.shader)]);
 				}
 
