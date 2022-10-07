@@ -128,7 +128,7 @@ class FreeplaySelectState extends MusicBeatState
 		sectionImage.x = sectionImage.x + 200;
 		add(sectionImage);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Gab Engine v" + GabEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Redstone Engine v" + GabEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("Permanent Marker Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);

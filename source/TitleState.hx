@@ -70,7 +70,7 @@ class TitleState extends MusicBeatState
 	#if TITLE_SCREEN_EASTER_EGG
 	var easterEggKeys:Array<String> = [
 		'HIM', //him
-		'Redstone' //redstoneSC was here
+		'RedstoneSC' //redstoneSC was here
 	];
 	var allowedKeys:String = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var easterEggKeysBuffer:String = '';
@@ -163,7 +163,7 @@ class TitleState extends MusicBeatState
 				titleJSON.gfx += 270;
 				titleJSON.gfy += 360;
 
-			case 'Redstone':
+			case 'RedstoneSC':
 				titleJSON.gfx += 270;
 				titleJSON.gfy += 360;
 		}
@@ -291,7 +291,7 @@ class TitleState extends MusicBeatState
 				gfDance.animation.addByPrefix('danceLeft', 'DANCE FUCKER DANCE', 34);
 				gfDance.animation.addByPrefix('danceRight', 'DANCE FUCKER DANCE', 34);
 
-				case 'Redstone':
+				case 'RedstoneSC':
 					gfDance.frames = Paths.getSparrowAtlas('dancin');
 					gfDance.animation.addByPrefix('danceLeft', 'RedstoneSC dance', 34);
 					gfDance.animation.addByPrefix('danceRight', 'RedstoneSC dance', 34);
@@ -666,7 +666,7 @@ class TitleState extends MusicBeatState
 					case 'HIM':
 						FlxG.sound.play(Paths.sound('JingleHim'));
 
-					case 'Redstone':
+					case 'RedstoneSC':
 						FlxG.sound.play(Paths.sound('JingleRed'));
 					
 					default: //Go back to normal ugly ass boring GF

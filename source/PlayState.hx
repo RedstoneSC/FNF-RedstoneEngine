@@ -2593,8 +2593,8 @@ class PlayState extends MusicBeatState
 
 			if (SONG.song.toLowerCase() == 'test') // Holy holy shit shit -aadiyan2
 				{
-					testshader.waveAmplitude = 0.1;
-					testshader.waveFrequency = 5;
+					testshader.waveAmplitude = 0.07;
+					testshader.waveFrequency = 4;
 					testshader.waveSpeed = 1;
 					camHUD.setFilters([new ShaderFilter(testshader.shader)]);
 				}
