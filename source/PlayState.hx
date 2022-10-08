@@ -1,4 +1,4 @@
-// coded by Aadiyan2, Ghost Cycba (Fired) and AverageDaveLover69
+// coded by Aadiyan2 and AverageDaveLover69
 // mfs i had to change it -redstoneSC
 // fixed wavy modchart by Aadiyan2
 package;
