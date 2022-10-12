@@ -58,7 +58,7 @@ class StrumNote extends FlxSprite
 		if(PlayState.isPixelStage)
 		{
 			var skin:String = 'noteSkins/ARROW_assets';
-			if (FileSystem.exists(Paths.texture('assets/shared/images/pixelUI/${texture}.png')) && FileSystem.exists(Paths.texture('assets/shared/images/pixelUI/' + texture + 'ENDS.png'))) {
+			if (FileSystem.exists('assets/shared/images/pixelUI/${texture}.png') && FileSystem.exists('assets/shared/images/pixelUI/' + texture + 'ENDS.png')) {
 				skin = FlxG.save.data.arrowSkin;
 			} else {
 				skin = 'noteSkins/ARROW_assets';
