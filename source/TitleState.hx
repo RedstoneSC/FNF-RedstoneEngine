@@ -110,7 +110,7 @@ class TitleState extends MusicBeatState
 		#if CHECK_FOR_UPDATES
 		if(!closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://github.com/Gabriel2019r/FNF-GabEngine/main/gitVersion.txt");
+			var http = new haxe.Http("https://github.com/Gabriel2019r/FNF-RedstoneEngine/main/gitVersion.txt");
 			
 			http.onData = function (data:String)
 			{
@@ -118,7 +118,7 @@ class TitleState extends MusicBeatState
 				var curVersion:String = MainMenuState.gabEngineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
-					trace('bro your version isnt the same as https://github.com/Gabriel2019r/FNF-GabEngine/main/gitVersion.txt please fucking update');
+					trace('bro your version isnt the same as https://github.com/Gabriel2019r/FNF-RedstoneEngine/main/gitVersion.txt please fucking update');
 					mustUpdate = true;
 				}
 			}
@@ -571,14 +571,14 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					//#if PSYCH_WATERMARKS
-					createCoolText(['Gab Engine by'], 15);
+					createCoolText(['Redstone Engine by'], 15);
 					/*#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end*/
 				// credTextShit.visible = true;
 				case 3:
 					//#if PSYCH_WATERMARKS
-					addMoreText('Gabriel2019r', 15);
+					addMoreText('RedstoneSC', 15);
 					addMoreText('AverageDaveFan65', 15);
 					addMoreText('Aadiyan1', 15);
 					/*#else
@@ -623,7 +623,7 @@ class TitleState extends MusicBeatState
 					addMoreText('Friday Night Funkin');
 				// credTextShit.visible = true;
 				case 14:
-					addMoreText('Gab Engine');
+					addMoreText('Redstone Engine');
 				// credTextShit.text += '\nNight';
 				case 15:
 					skipIntro();
