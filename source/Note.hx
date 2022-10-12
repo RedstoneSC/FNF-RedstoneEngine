@@ -266,7 +266,7 @@ class Note extends FlxSprite
 		var lastScaleY:Float = scale.y;
 		var blahblah:String = arraySkin.join('/');
 		if(PlayState.isPixelStage) {
-			if (FileSystem.exists(Paths.image('assets/shared/images/pixelUI/${blahblah}.png')) && FileSystem.exists(Paths.image('assets/shared/images/pixelUI/' + blahblah + 'ENDS.png'))) {
+			if (FileSystem.exists(Paths.texture('assets/shared/images/pixelUI/${blahblah}.png')) && FileSystem.exists(Paths.texture('assets/shared/images/pixelUI/' + blahblah + 'ENDS.png'))) {
 					blahblah = FlxG.save.data.arrowSkin;
 			} else {
 				blahblah = 'noteSkins/ARROW_assets';
