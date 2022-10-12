@@ -81,8 +81,8 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Gab Engine Team'],
-			['RedstoneSC',		'gab',				'Creator of Gab Engine, main programmer, artist.',  		'https://www.youtube.com/channel/UCnMfn3dNQfRNwQTA2mUrrMw',     'EB2B48'],
+			['Redstone Engine Team'],
+			['RedstoneSC',		'redstone',				'Creator of Redstone Engine, main programmer, artist. Press enter if you dare. lol',  		'https://youtu.be/uFP3FcaEBiw',     'EB2B48'],
 			['AverageDaveLover65',	'average',			'Programmer/Artist/Animator of the engine & Composed Title music.',	'',								'00FF00'], //fuck you cycba
 			['Aadiyan1',           	'aad',				'Programmer, and Shaders code.',  							'https://www.youtube.com/user/Aadiyan1','03C200'],
 			[''],
@@ -91,7 +91,7 @@ class CreditsState extends MusicBeatState
 			['Wither362',           'wither',			'Creator of Theoyeah Engines Icons',  						'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw', '242124'],
 			['Magnumsrt',           'mag',             'Stage Editor',                                             'https://www.youtube.com/channel/UCvLfr0qFidKD2Wul8otcJcw', '0066CC'],
 			['TahirRollingArch',    'tahir',             'Replay System',                                            'https://github.com/TahirRollingArch',  'B57D5E'],
-			['CrusherNotDrip',      'crusher',             'Ported Stage Editor and Replay System to Gab Engine.',     'https://twitter.com/CrusherNotDrip',   '00FFFF'],
+			['CrusherNotDrip',      'crusher',             'Ported Stage Editor and Replay System to Redstone Engine.',     'https://twitter.com/CrusherNotDrip',   '00FFFF'],
 			['lemz1',		'icon',				'Opponent Play Code',  		'',     'EB2B48'],
 			['Phoneguytech75',		'icon',				'Noteskin Select Option Code',  		'',     'EB2B48'],
 			[''],

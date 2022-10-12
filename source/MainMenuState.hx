@@ -105,10 +105,10 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-		leGradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0x009c0000, 0x00ff0000, 0x009c0000], 1, 90, true);
+		leGradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0x00ff0000, 0x55AE59E4, 0xAA19ECFF], 1, 90, true);
 		leGradientBar.y = FlxG.height - leGradientBar.height;
-		leGradientBar.scrollFactor.set(0, 0);
 		add(leGradientBar);
+		leGradientBar.scrollFactor.set(0, 0);
 
 		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), 5, 5, true, true);
 		bgScroll.scrollFactor.set();
