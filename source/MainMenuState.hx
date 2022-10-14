@@ -123,7 +123,7 @@ class MainMenuState extends MusicBeatState
 		bgs.updateHitbox();
 		add(bgs);
 
-		logo = new FlxSprite(-30, 50).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
+		logo = new FlxSprite(-30, 20).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
 		logo.frames = Paths.getSparrowAtlas('logoBumpin');//here put the name of the xml
 		logo.animation.addByPrefix('bump', 'logo bumpin', 24, true);//on 'idle normal' change it to your xml one
 		logo.animation.play('bump');//you can rename the anim however you want to
