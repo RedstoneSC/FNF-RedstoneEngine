@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/100803757/183262381-b61dfcf2-2a78-401c-8bd0-ffbf22d0e6a0.png?width=1101&height=701)
+![image](https://user-images.githubusercontent.com/100803757/195834577-041c0a6a-0722-4783-ba20-e72f347501fe.png)
 # Friday Night Funkin' - Redstone Engine
 A modification of Psych Engine (mostly psych fork) which adds shaders and lots of features!
 _____________________________________
@@ -58,7 +58,7 @@ _____________________________________
 
 Makes the titlestate.hx a little bit better, including tweening and that sort of stuff
 
-![](https://user-images.githubusercontent.com/107285739/185762607-78af4bee-57f8-472b-908c-d2d7fb4e2d12.png)
+![image](https://user-images.githubusercontent.com/100803757/195834432-297e2c6f-7332-4ec7-b7c8-e1493f3268fe.png)
 
 ## Shaders VIA SOURCE
 
@@ -82,7 +82,7 @@ var bg:BGSprite = new BGSprite('folder/whateverthehellyourstageis', -600, -200, 
 
 Adds in some cool stuff
 
-![](https://user-images.githubusercontent.com/107285739/185762921-3fe34263-7341-4081-b39e-f005052879ee.png)
+![image](https://user-images.githubusercontent.com/100803757/195833984-7b3bbdd2-28e8-4af3-8bc4-a1cb4ad4a9fa.png)
 
 ## Camera follow + Redstone-Engine UI
 
@@ -101,7 +101,17 @@ Adds in some cool stuff
 
 While being a work in progress
 
-![](https://user-images.githubusercontent.com/107285739/185763286-bc7a47a2-7f5f-4feb-97a2-64de38c80e73.png)
+![image](https://user-images.githubusercontent.com/100803757/195834126-ae168ca5-349e-459b-9f78-445c1d6eff6d.png)
+
+### Noteskins!
+
+* You will also be included with an option of custom noteskins, which are built-in!
+
+![image](https://user-images.githubusercontent.com/100803757/195834837-349bde2f-ef16-451c-9b41-4794caf52010.png)
+
+### Some random screenshot
+
+![image](https://user-images.githubusercontent.com/100803757/195835476-9a169e15-0ef3-4b8e-85ee-964386ecfbdf.png)
 
 ### Thanks for reading!
 
