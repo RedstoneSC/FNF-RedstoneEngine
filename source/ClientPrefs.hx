@@ -13,6 +13,7 @@ class ClientPrefs {
 	public static var laneTransparency:Float = 0.5;
 	public static var showFPS:Bool = true;
 	public static var judgementCounter:Bool = false;
+	public static var arrowSkin:Bool = true;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -111,6 +112,7 @@ class ClientPrefs {
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.framerate = framerate;
 		FlxG.save.data.judgementCounter = judgementCounter;
+		FlxG.save.data.arrowSkin = arrowSkin;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -169,6 +171,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.judgementCounter != null) {
 			judgementCounter = FlxG.save.data.judgementCounter;
+		}
+		if(FlxG.save.data.arrowSkin != null) {
+			arrowSkin = FlxG.save.data.arrowSkin;
 		}
 		if(FlxG.save.data.flashing != null) {
 			flashing = FlxG.save.data.flashing;
