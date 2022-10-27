@@ -93,7 +93,6 @@ class CreditsState extends MusicBeatState
 			['TahirRollingArch',    'tahir',             'Replay System',                                            'https://github.com/TahirRollingArch',  'B57D5E'],
 			['CrusherNotDrip',      'crusher',             'Ported Stage Editor and Replay System to Redstone Engine.',     'https://twitter.com/CrusherNotDrip',   '00FFFF'],
 			['lemz1',		'icon',				'Opponent Play Code',  		'',     'EB2B48'],
-			['Phoneguytech75',		'icon',				'Noteskin Select Option Code',  		'',     'EB2B48'],
 			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
