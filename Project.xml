@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Redstone Engine" file="RedstoneEngine" packageName="com.RedstoneSC.RedstoneEngine" package="com.RedstoneSC.RedEngine" main="Main" version="0.2.7" company="RedstoneSC" />
+	<app title="Friday Night Funkin': Redstone Engine" file="RedstoneEngine" packageName="com.redstonesc.redstoneengine" package="com.redstonesc.redstoneengine" main="Main" version="0.2.7" company="RedstoneSC" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />

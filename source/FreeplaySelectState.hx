@@ -31,7 +31,7 @@ class FreeplaySelectState extends MusicBeatState
 
     var sectionImage:FlxSprite;
     var sectionSelected:Int = 0;
-    var sections:Array<String> = ['main'/*, 'mods'*/];
+    var sections:Array<String> = ['main', 'mods'];
 
     var AREYOUINTHEFUCKINGSELECTION:Bool = false;
 
@@ -40,8 +40,8 @@ class FreeplaySelectState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		'main'//,
-		//#if MODS_ALLOWED 'mods' #end
+		'main',
+		#if MODS_ALLOWED 'mods' #end
 	];
 
 	var magenta:FlxSprite;
@@ -227,11 +227,11 @@ class FreeplaySelectState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'main':
-									MusicBeatState.switchState(new freeplays./*MainFreeplay*//*in the future, soon*/ModsFreeplayState());
-								/*#if MODS_ALLOWED
+									MusicBeatState.switchState(new FreeplayState());
+								#if MODS_ALLOWED
 								case 'mods':
 									MusicBeatState.switchState(new freeplays.ModsFreeplayState());
-								#end*/
+								#end
 							}
 						});
 					}
