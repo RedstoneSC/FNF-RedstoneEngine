@@ -118,12 +118,12 @@ class MainMenuState extends MusicBeatState
 		add(bgScroll);
 
 		var bgs:FlxSprite = new FlxSprite(500, -150).loadGraphic(Paths.image('bar'));
-		bgs.scrollFactor.set(0, 0);
+		bgs.scrollFactor.set();
 		bgs.setGraphicSize(Std.int(bgs.width * 1.3), Std.int(bgs.height * 1.3));
 		bgs.updateHitbox();
 		add(bgs);
 
-		logo = new FlxSprite(-30, 20).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
+		logo = new FlxSprite(-30, -20).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
 		logo.frames = Paths.getSparrowAtlas('logoBumpin');//here put the name of the xml
 		logo.animation.addByPrefix('bump', 'logo bumpin', 24, true);//on 'idle normal' change it to your xml one
 		logo.animation.play('bump');//you can rename the anim however you want to
@@ -167,11 +167,25 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Redstone Engine v" + gabEngineVersion, 12);
+		var randomThingy:Int = FlxG.random.int(0, 2);
+		var engineRandomizer:String = 'stupid';
+		switch(randomThingy)
+		{
+			case 0:
+				engineRandomizer = 'Redstone ';
+			case 1:
+				engineRandomizer = 'FruityGH ';
+			case 2:
+				engineRandomizer = 'Dumb ';
+			case 3:
+				engineRandomizer = 'Haydbi ';
+		}
+
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 54, 0, engineRandomizer + "Engine v" + gabEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("Permanent Marker Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 34, 0, "Friday Night Funkin v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("Permanent Marker Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -280,7 +294,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState()); // no more sections
+										MusicBeatState.switchState(new FreeplaySelectState()); // no more sections
 									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());

@@ -691,7 +691,8 @@ class StageEditorState extends MusicBeatState
 				camera_boyfriend: [0, 0],
 				camera_opponent: [0, 0],
 				camera_girlfriend: [0, 0],
-				camera_speed: 1
+				camera_speed: 1,
+				camera_pose_intensity: 15
 			};
 		}
 		else
@@ -862,7 +863,8 @@ class StageEditorState extends MusicBeatState
 			camera_boyfriend: stageFile.camera_boyfriend,
 			camera_opponent: stageFile.camera_opponent,
 			camera_girlfriend: stageFile.camera_girlfriend,
-			camera_speed: stageFile.camera_speed
+			camera_speed: stageFile.camera_speed,
+			camera_pose_intensity: stageFile.camera_pose_intensity
 
 		}
 

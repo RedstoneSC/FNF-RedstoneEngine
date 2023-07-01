@@ -141,6 +141,8 @@ class PlayState extends MusicBeatState
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 
+	public var camOffset:Float = 15;
+
 	public static var screenshader:Shaders.PulseEffect = new PulseEffect();
 	public var curbg:FlxSprite;
 
@@ -473,7 +475,8 @@ class PlayState extends MusicBeatState
 				camera_boyfriend: [0, 0],
 				camera_opponent: [0, 0],
 				camera_girlfriend: [0, 0],
-				camera_speed: 1
+				camera_speed: 1,
+				camera_pose_intensity: 15
 			};
 		}
 
@@ -485,6 +488,8 @@ class PlayState extends MusicBeatState
 		GF_Y = stageData.girlfriend[1];
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
+
+		camOffset = stageData.camera_pose_intensity;
 
 		if(stageData.camera_speed != null)
 			cameraSpeed = stageData.camera_speed;
@@ -507,7 +512,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'ShaderStageTest':
+			case 'shader-test':
 			{
 				var bg:BGSprite = new BGSprite('WavyShaderBGTest/cheater', -600, -200, 0.9, 0.9);
 				add(bg);
@@ -679,8 +684,6 @@ class PlayState extends MusicBeatState
 				var fgSnow:BGSprite = new BGSprite('christmas/fgSnow', -600, 700);
 				add(fgSnow);
 
-				santa = new BGSprite('christmas/santa', -840, 150, 1, 1, ['santa idle in fear']);
-				add(santa);
 				CoolUtil.precacheSound('Lights_Shut_off');
 
 			case 'mallEvil': //Week 5 - Winter Horrorland
@@ -954,7 +957,11 @@ class PlayState extends MusicBeatState
 			case 'limo':
 				resetFastCar();
 				insert(members.indexOf(gfGroup) - 1, fastCar);
-			
+
+			case 'mall':
+				santa = new BGSprite('christmas/santa', -840, 150, 1, 1, ['santa idle in fear']);
+				add(santa);
+
 			case 'schoolEvil':
 				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069); //nice
 				insert(members.indexOf(dadGroup) - 1, evilTrail);
@@ -1094,7 +1101,7 @@ class PlayState extends MusicBeatState
 		add(timeBarBG);
 
 		if(ClientPrefs.downScroll)
-			timeBarBG.y = FlxG.height - 45;
+			timeBarBG.y = FlxG.height - 35;
 		else
 			timeBarBG.y = 10;
 
@@ -1317,14 +1324,14 @@ class PlayState extends MusicBeatState
 			case 0:
 				engineRandomizer = 'Redstone ';
 			case 1:
-				engineRandomizer = 'AverageDaveLover65 ';
+				engineRandomizer = 'FruityGH ';
 			case 2:
-				engineRandomizer = 'Aadiyan1 ';
-			/*case 3:
-				engineRandomizer = 'Epic Gamer ';*/ //unused
+				engineRandomizer = 'Dumb ';
+			case 3:
+				engineRandomizer = 'Haydbi ';
 		}
 
-        var swagWatermark = new FlxText(4, scoreTxt.y + 25, 0,
+        var swagWatermark = new FlxText(4, scoreTxt.y + 20, 0,
 		SONG.song
 		+ " "
 		+ " |  " + engineRandomizer + /*dont add a space to this please i beg you*/"Engine " + MainMenuState.gabEngineVersion, 16);
@@ -2726,17 +2733,17 @@ class PlayState extends MusicBeatState
 		var charAnimOffsetX:Float = 0;
 		var charAnimOffsetY:Float = 0;
 		if(ClientPrefs.movingCamera){
-			if(focusedCharacter!=null){
-				if(focusedCharacter.animation.curAnim!=null){
+			if(focusedCharacter != null){
+				if(focusedCharacter.animation.curAnim != null){
 					switch (focusedCharacter.animation.curAnim.name){
 						case 'singUP' | 'singUP-alt':
-							charAnimOffsetY -= 35;
+							charAnimOffsetY -= camOffset;
 						case 'singDOWN' | 'singDOWN-alt':
-							charAnimOffsetY += 35;
+							charAnimOffsetY += camOffset;
 						case 'singLEFT' | 'singLEFT-alt':
-							charAnimOffsetX -= 35;
+							charAnimOffsetX -= camOffset;
 						case 'singRIGHT' | 'singRIGHT-alt':
-							charAnimOffsetX += 35;
+							charAnimOffsetX += camOffset;
 					}
 				}
 			}
