@@ -30,6 +30,7 @@ haxelib install hxCodec 2.5.1
 * RedstoneSC - Coding (small amount) and Artwork
 * AverageDaveLover65 - Extra coding and Animator/Artist/Composer, made the 3D notes (Credit them when using THEIR stuff!)
 * Aadiyan1 - Coding (Shaders support)
+* ADA_Funni - Coding (Revived the engine)
 # Contributors
 * Theoyeah - Creator of Theoyeah Engine/Icon permission
 * Wither362 - Creator of Theoyeah Engines Icons
