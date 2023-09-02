@@ -110,7 +110,7 @@ class MainMenuState extends MusicBeatState
 		add(leGradientBar);
 		leGradientBar.scrollFactor.set(0, 0);
 
-		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), 5, 5, true, true);
+		var bgScroll:FlxBackdrop = new FlxBackdrop(Paths.image('cubicbg'), #if (flixel < "5.0.0") 5, 5, true, true,#else XY,#end 1,1); // flixel compatibility sucks
 		bgScroll.scrollFactor.set();
 		bgScroll.screenCenter();
 		bgScroll.velocity.set(50, 50);
